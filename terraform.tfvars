@@ -1,55 +1,83 @@
+###############################################################
 # terraform.tfvars.example
-# Example variable values for multi-vendor Terraform infrastructure
+# Example variable values for multi-vendor Terraform automation
+# --------------------------------------------------------------
+# ❗ IMPORTANT:
+# This file contains ONLY SAMPLE VALUES.
+# Do NOT put real passwords or secrets here.
+# Copy this file to terraform.tfvars and edit locally.
+###############################################################
 
-# Azure
-rg_name   = "core-network-rg"
-location  = "East US"
+############################
+# Azure Configuration
+############################
+rg_name  = "example-resource-group"
+location = "East US"
 
-# Infoblox
-dns_hostname = "core-host01"
-ipv4addr     = "192.168.10.50"
+############################
+# Infoblox Configuration
+############################
+dns_hostname       = "example-host"
+ipv4addr           = "192.168.10.50"
+infoblox_username  = "REPLACE_ME_USERNAME"
+infoblox_password  = "REPLACE_ME_PASSWORD"
+infoblox_server    = "infoblox.example.local"
 
-infoblox_username = "admin"
-infoblox_password = "securepass"
-infoblox_server   = "infoblox.example.local"
-
-# F5
+############################
+# F5 BIG-IP Configuration
+############################
 f5_address  = "10.0.1.20"
-f5_username = "admin"
-f5_password = "adminpass"
-vs_name     = "web-virtual-server"
+f5_username = "REPLACE_ME_USERNAME"
+f5_password = "REPLACE_ME_PASSWORD"
+vs_name     = "example-virtual-server"
 destination = "10.0.1.100:80"
 
-# Zscaler
-zscaler_username = "zuser@example.com"
-zscaler_password = "zsecurepass"
-zscaler_api_key  = "your_zscaler_api_key"
-rule_name        = "Allow-HTTP"
+############################
+# Zscaler Configuration
+############################
+zscaler_username = "replace@example.com"
+zscaler_password = "REPLACE_ME_PASSWORD"
+zscaler_api_key  = "REPLACE_ME_API_KEY"
+rule_name        = "Example-HTTP-Rule"
 
-# ACI
-tenant_name = "NetOps-Tenant"
+############################
+# Cisco ACI
+############################
+tenant_name = "Example-Tenant"
 
-# Cisco IOS
-device_ip = "192.168.100.10"
-username  = "cisco"
-password  = "cisco123"
+############################
+# Cisco IOS / NX-OS
+############################
+cisco_device_ip = "192.168.100.10"
+cisco_username  = "REPLACE_ME_USERNAME"
+cisco_password  = "REPLACE_ME_PASSWORD"
 
-# Palo Alto
-object_name  = "trust-zone"
+############################
+# Palo Alto Networks
+############################
+object_name  = "example-object"
 object_value = "10.10.10.0/24"
 
-# Check Point
-host_name  = "mgmt-gateway"
+############################
+# Check Point Configuration
+############################
+host_name  = "example-gateway"
 ip_address = "192.168.30.1"
 
-# Fortinet
-addr_name = "trusted-subnet"
+############################
+# Fortinet / FortiGate
+############################
+addr_name = "example-subnet"
 subnet    = "172.16.1.0/24"
 
-# Juniper
-device_ip = "192.168.50.2"
-username  = "juniper"
-password  = "juniper123"
+############################
+# Juniper Networks
+############################
+juniper_device_ip = "192.168.50.2"
+juniper_username  = "REPLACE_ME_USERNAME"
+juniper_password  = "REPLACE_ME_PASSWORD"
 
-# SD-Access
-site_name = "Nairobi-Core"
+############################
+# Cisco SD-Access
+############################
+site_name = "Example-Site"
