@@ -2,25 +2,25 @@
 # Root Variables – Used by Modules
 ##########################################################
 
-# Cisco IOS / NX-OS Variables (passed to module "ios")
+# Cisco IOS / NX-OS Variables (module "ios")
 variable "cisco_device_ip" {
-  description = "Management IP address of the Cisco IOS device"
+  description = "Management IP of Cisco IOS device"
   type        = string
 }
 
 variable "cisco_username" {
-  description = "Username for the Cisco IOS device"
+  description = "Username for Cisco IOS device"
   type        = string
 }
 
 variable "cisco_password" {
-  description = "Password for the Cisco IOS device"
+  description = "Password for Cisco IOS device"
   type        = string
   sensitive   = true
 }
 
 ##########################################################
-# F5 BIG-IP Variables (passed to module "f5")
+# F5 BIG-IP Variables (module "f5")
 ##########################################################
 
 variable "f5_vs_name" {
@@ -29,7 +29,21 @@ variable "f5_vs_name" {
 }
 
 variable "f5_destination" {
-  description = "Destination IP:Port for the F5 Virtual Server"
+  description = "Destination IP:Port for F5 VS"
+  type        = string
+}
+
+##########################################################
+# Fortinet Firewall Variables (module "fortinet")
+##########################################################
+
+variable "fortinet_addr_name" {
+  description = "Name of Fortinet Firewall Address Object"
+  type        = string
+}
+
+variable "fortinet_subnet" {
+  description = "CIDR subnet used in Fortinet Address Object"
   type        = string
 }
 
@@ -78,7 +92,7 @@ variable "zscaler_api_key" {
 }
 
 ##########################################################
-# Azure Variables (module/azure)
+# Azure Variables (module "azure")
 ##########################################################
 
 variable "rg_name" {
@@ -90,7 +104,7 @@ variable "location" {
 }
 
 ##########################################################
-# ACI Tenant Variables
+# ACI Tenant Variables (module "aci")
 ##########################################################
 
 variable "tenant_name" {
