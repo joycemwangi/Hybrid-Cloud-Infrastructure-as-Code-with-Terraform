@@ -20,7 +20,21 @@ variable "cisco_password" {
 }
 
 ##########################################################
-# Other Provider Credentials (from terraform.tfvars)
+# F5 BIG-IP Variables (passed to module "f5")
+##########################################################
+
+variable "f5_vs_name" {
+  description = "Name of the F5 Virtual Server"
+  type        = string
+}
+
+variable "f5_destination" {
+  description = "Destination IP:Port for the F5 Virtual Server"
+  type        = string
+}
+
+##########################################################
+# Provider Credentials (from terraform.tfvars)
 ##########################################################
 
 variable "infoblox_username" {
@@ -28,8 +42,8 @@ variable "infoblox_username" {
 }
 
 variable "infoblox_password" {
-  type = string
-  sensitive = true
+  type        = string
+  sensitive   = true
 }
 
 variable "infoblox_server" {
@@ -45,8 +59,8 @@ variable "f5_username" {
 }
 
 variable "f5_password" {
-  type = string
-  sensitive = true
+  type        = string
+  sensitive   = true
 }
 
 variable "zscaler_username" {
@@ -54,13 +68,13 @@ variable "zscaler_username" {
 }
 
 variable "zscaler_password" {
-  type = string
-  sensitive = true
+  type        = string
+  sensitive   = true
 }
 
 variable "zscaler_api_key" {
-  type = string
-  sensitive = true
+  type        = string
+  sensitive   = true
 }
 
 ##########################################################
@@ -76,7 +90,7 @@ variable "location" {
 }
 
 ##########################################################
-# ACI
+# ACI Tenant Variables
 ##########################################################
 
 variable "tenant_name" {
