@@ -6,49 +6,41 @@ terraform {
 
   required_providers {
 
-    # Azure
     azurerm = {
       source  = "hashicorp/azurerm"
       version = "~> 3.0"
     }
 
-    # Infoblox NIOS
     infoblox = {
       source  = "infobloxopen/infoblox"
       version = ">= 1.0.0"
     }
 
-    # F5 BIG-IP
     f5 = {
       source  = "F5Networks/bigip"
       version = ">= 1.0.0"
     }
 
-    # Zscaler ZIA
     zscaler = {
       source  = "zscaler/zia"
       version = ">= 1.0.0"
     }
 
-    # Fortinet FortiOS
     fortios = {
       source  = "fortinetdev/fortios"
       version = ">= 1.0.0"
     }
 
-    # Palo Alto PAN-OS
     panos = {
       source  = "PaloAltoNetworks/panos"
       version = ">= 1.0.0"
     }
 
-    # Check Point
     checkpoint = {
       source  = "CheckPointSW/checkpoint"
       version = ">= 2.0.0"
     }
 
-    # Cisco ACI
     aci = {
       source  = "CiscoDevNet/aci"
       version = ">= 0.6.0"
@@ -57,7 +49,7 @@ terraform {
 }
 
 ##########################################
-# Provider Configuration Blocks
+# Providers
 ##########################################
 
 provider "azurerm" {
@@ -87,12 +79,12 @@ provider "zscaler" {
 ##########################################
 
 module "aci" {
-  source = "./modules/aci"
+  source      = "./modules/aci"
+  tenant_name = var.tenant_name
 }
 
 module "ios" {
-  source = "./modules/cisco_ios"
-
+  source   = "./modules/cisco_ios"
   device_ip = var.cisco_device_ip
   username  = var.cisco_username
   password  = var.cisco_password
@@ -103,7 +95,9 @@ module "paloalto" {
 }
 
 module "azure" {
-  source = "./modules/azure"
+  source  = "./modules/azure"
+  rg_name = var.rg_name
+  location = var.location
 }
 
 module "infoblox" {
@@ -111,7 +105,9 @@ module "infoblox" {
 }
 
 module "f5" {
-  source = "./modules/f5"
+  source      = "./modules/f5"
+  vs_name     = var.f5_vs_name
+  destination = var.f5_destination
 }
 
 module "zscaler" {
@@ -128,6 +124,9 @@ module "checkpoint" {
 
 module "fortinet" {
   source = "./modules/fortinet"
+
+  addr_name = var.fortinet_addr_name
+  subnet    = var.fortinet_subnet
 }
 
 module "juniper" {
