@@ -30,25 +30,25 @@ terraform {
       version = ">= 1.0.0"
     }
 
-    # Fortinet FortiOS (modules/fortinet)
+    # Fortinet FortiOS
     fortios = {
       source  = "fortinetdev/fortios"
       version = ">= 1.0.0"
     }
 
-    # Palo Alto PAN-OS (modules/paloalto)
+    # Palo Alto PAN-OS
     panos = {
       source  = "PaloAltoNetworks/panos"
       version = ">= 1.0.0"
     }
 
-    # Check Point (modules/checkpoint)
+    # Check Point
     checkpoint = {
       source  = "CheckPointSW/checkpoint"
       version = ">= 2.0.0"
     }
 
-    # Cisco ACI (modules/aci)
+    # Cisco ACI
     aci = {
       source  = "CiscoDevNet/aci"
       version = ">= 0.6.0"
@@ -92,6 +92,10 @@ module "aci" {
 
 module "ios" {
   source = "./modules/cisco_ios"
+
+  device_ip = var.cisco_device_ip
+  username  = var.cisco_username
+  password  = var.cisco_password
 }
 
 module "paloalto" {
