@@ -1,4 +1,4 @@
-# monorepo/main.tf
+# monorepo/terraform_provisioning.tf
 # Terraform entrypoint for provisioning multi-vendor network infrastructure
 
 terraform {
@@ -96,11 +96,17 @@ module "ios" {
   password  = var.cisco_password
 }
 
+# JUNIPER MODULE – UPDATED
 module "juniper" {
   source    = "./modules/juniper"
   device_ip = var.juniper_device_ip
   username  = var.juniper_username
   password  = var.juniper_password
+
+  # Only include these if you defined them in variables.tf & module variables
+  hostname    = var.juniper_hostname
+  loopback_ip = var.juniper_loopback_ip
+  asn         = var.juniper_asn
 }
 
 module "paloalto" {
@@ -147,9 +153,23 @@ module "sd_access" {
 }
 
 ##########################################
-# Output
+# Outputs
 ##########################################
 
+# Global status
 output "status" {
   value = "✅ Provisioning completed. Check individual module outputs for details."
+}
+
+# Juniper-specific outputs (match outputs in ./modules/juniper/outputs.tf)
+output "juniper_device_ip" {
+  value = module.juniper.device_ip
+}
+
+output "juniper_hostname" {
+  value = module.juniper.hostname
+}
+
+output "juniper_loopback_ip" {
+  value = module.juniper.loopback_ip
 }
