@@ -5,7 +5,6 @@ terraform {
   required_version = ">= 1.3.0"
 
   required_providers {
-
     azurerm = {
       source  = "hashicorp/azurerm"
       version = "~> 3.0"
@@ -122,27 +121,22 @@ module "azure" {
 }
 
 module "aws" {
-  source               = "./modules/aws"
-  region               = var.aws_region
-  vpc_cidr             = var.aws_vpc_cidr
-  public_subnet_cidr   = var.aws_public_subnet_cidr
-  public_subnet_az     = var.aws_public_subnet_az
-  project_name         = var.project_name
+  source              = "./modules/aws"
+  region              = var.aws_region
+  vpc_cidr            = var.aws_vpc_cidr
+  public_subnet_cidr  = var.aws_public_subnet_cidr
+  public_subnet_az    = var.aws_public_subnet_az
+  project_name        = var.project_name
 }
 
 module "gcp" {
   source = "./modules/gcp"
-  project      = var.gcp_project
-  region       = var.gcp_region
+  # add inputs here if modules/gcp/variables.tf defines any
 }
 
 module "oci" {
   source = "./modules/oci"
-  oci_region           = var.oci_region
-  tenancy_ocid         = var.oci_tenancy_ocid
-  user_ocid            = var.oci_user_ocid
-  fingerprint          = var.oci_fingerprint
-  private_key_path     = var.oci_private_key_path
+  # add inputs here if modules/oci/variables.tf defines any
 }
 
 module "aci" {
@@ -158,13 +152,11 @@ module "ios" {
 }
 
 module "juniper" {
-  source      = "./modules/juniper"
-  device_ip   = var.juniper_device_ip
-  username    = var.juniper_username
-  password    = var.juniper_password
-  hostname    = var.juniper_hostname
-  loopback_ip = var.juniper_loopback_ip
-  asn         = var.juniper_asn
+  source    = "./modules/juniper"
+  device_ip = var.juniper_device_ip
+  username  = var.juniper_username
+  password  = var.juniper_password
+  # If you later extend the module, you can pass hostname/loopback/asn here.
 }
 
 module "paloalto" {
@@ -229,18 +221,16 @@ output "status" {
 }
 
 output "juniper_device_ip"   { value = module.juniper.device_ip }
-output "juniper_hostname"    { value = module.juniper.hostname }
-output "juniper_loopback_ip" { value = module.juniper.loopback_ip }
+output "juniper_hostname"    { value = try(module.juniper.hostname, null) }
+output "juniper_loopback_ip" { value = try(module.juniper.loopback_ip, null) }
 
 output "paloalto_object_name" { value = module.paloalto.object_name }
 output "paloalto_object_type" { value = module.paloalto.object_type }
 output "paloalto_object_tags" { value = module.paloalto.object_tags }
 
-output "sd_access_site_name" { value = module.sd_access.site_name }
-
-output "panorama_admin_username" { value = module.panorama_access.admin_username }
-
-output "zscaler_rule_name" { value = module.zscaler.rule_name }
+output "sd_access_site_name"      { value = module.sd_access.site_name }
+output "panorama_admin_username"  { value = module.panorama_access.admin_username }
+output "zscaler_rule_name"        { value = module.zscaler.rule_name }
 
 output "aws_module_outputs" {
   description = "Outputs from AWS module"
