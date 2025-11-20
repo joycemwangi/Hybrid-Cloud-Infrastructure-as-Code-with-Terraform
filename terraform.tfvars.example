@@ -33,9 +33,10 @@ f5_destination = "10.0.1.100:80"
 ############################
 # Zscaler Configuration
 ############################
-zscaler_username = "replace@example.com"
-zscaler_password = "REPLACE_ME_PASSWORD"
-zscaler_api_key  = "REPLACE_ME_API_KEY"
+zscaler_username   = "replace@example.com"
+zscaler_password   = "REPLACE_ME_PASSWORD"
+zscaler_api_key    = "REPLACE_ME_API_KEY"
+zscaler_rule_name  = "Allow-HTTP"
 
 ############################
 # Cisco ACI
