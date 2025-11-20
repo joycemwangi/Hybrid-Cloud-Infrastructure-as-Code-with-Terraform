@@ -1,5 +1,0 @@
-resource "paloaltonetworks_panorama_admin" "admin_user" {
-  name     = "netadmin"
-  password = "SuperSecret123!"
-  role     = "superuser"
-}
