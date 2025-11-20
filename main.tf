@@ -121,22 +121,22 @@ module "azure" {
 }
 
 module "aws" {
-  source              = "./modules/aws"
-  region              = var.aws_region
-  vpc_cidr            = var.aws_vpc_cidr
-  public_subnet_cidr  = var.aws_public_subnet_cidr
-  public_subnet_az    = var.aws_public_subnet_az
-  project_name        = var.project_name
+  source             = "./modules/aws"
+  region             = var.aws_region
+  vpc_cidr           = var.aws_vpc_cidr
+  public_subnet_cidr = var.aws_public_subnet_cidr
+  public_subnet_az   = var.aws_public_subnet_az
+  project_name       = var.project_name
 }
 
 module "gcp" {
   source = "./modules/gcp"
-  # add inputs here if modules/gcp/variables.tf defines any
+  # Add inputs here if modules/gcp/variables.tf defines any required variables
 }
 
 module "oci" {
   source = "./modules/oci"
-  # add inputs here if modules/oci/variables.tf defines any
+  # Add inputs here if modules/oci/variables.tf defines any required variables
 }
 
 module "aci" {
@@ -220,17 +220,42 @@ output "status" {
   value = "Provisioning completed. Check individual module outputs for details."
 }
 
-output "juniper_device_ip"   { value = module.juniper.device_ip }
-output "juniper_hostname"    { value = try(module.juniper.hostname, null) }
-output "juniper_loopback_ip" { value = try(module.juniper.loopback_ip, null) }
+output "juniper_device_ip" {
+  value = module.juniper.device_ip
+}
 
-output "paloalto_object_name" { value = module.paloalto.object_name }
-output "paloalto_object_type" { value = module.paloalto.object_type }
-output "paloalto_object_tags" { value = module.paloalto.object_tags }
+# These will be null unless the juniper module exports them; try() avoids crashes.
+output "juniper_hostname" {
+  value = try(module.juniper.hostname, null)
+}
 
-output "sd_access_site_name"      { value = module.sd_access.site_name }
-output "panorama_admin_username"  { value = module.panorama_access.admin_username }
-output "zscaler_rule_name"        { value = module.zscaler.rule_name }
+output "juniper_loopback_ip" {
+  value = try(module.juniper.loopback_ip, null)
+}
+
+output "paloalto_object_name" {
+  value = module.paloalto.object_name
+}
+
+output "paloalto_object_type" {
+  value = module.paloalto.object_type
+}
+
+output "paloalto_object_tags" {
+  value = module.paloalto.object_tags
+}
+
+output "sd_access_site_name" {
+  value = module.sd_access.site_name
+}
+
+output "panorama_admin_username" {
+  value = module.panorama_access.admin_username
+}
+
+output "zscaler_rule_name" {
+  value = module.zscaler.rule_name
+}
 
 output "aws_module_outputs" {
   description = "Outputs from AWS module"
