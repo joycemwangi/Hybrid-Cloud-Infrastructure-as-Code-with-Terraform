@@ -143,6 +143,12 @@ variable "zscaler_api_key" {
   sensitive = true
 }
 
+# Required for modules/zscaler
+variable "zscaler_rule_name" {
+  description = "Name of the Zscaler firewall filtering rule"
+  type        = string
+}
+
 ##########################################################
 # Azure (passed to module/azure)
 ##########################################################
