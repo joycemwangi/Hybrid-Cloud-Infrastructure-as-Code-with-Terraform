@@ -122,15 +122,27 @@ module "azure" {
 }
 
 module "aws" {
-  source = "./modules/aws"
+  source               = "./modules/aws"
+  region               = var.aws_region
+  vpc_cidr             = var.aws_vpc_cidr
+  public_subnet_cidr   = var.aws_public_subnet_cidr
+  public_subnet_az     = var.aws_public_subnet_az
+  project_name         = var.project_name
 }
 
 module "gcp" {
   source = "./modules/gcp"
+  project      = var.gcp_project
+  region       = var.gcp_region
 }
 
 module "oci" {
   source = "./modules/oci"
+  oci_region           = var.oci_region
+  tenancy_ocid         = var.oci_tenancy_ocid
+  user_ocid            = var.oci_user_ocid
+  fingerprint          = var.oci_fingerprint
+  private_key_path     = var.oci_private_key_path
 }
 
 module "aci" {
@@ -146,17 +158,17 @@ module "ios" {
 }
 
 module "juniper" {
-  source    = "./modules/juniper"
-  device_ip = var.juniper_device_ip
-  username  = var.juniper_username
-  password  = var.juniper_password
+  source      = "./modules/juniper"
+  device_ip   = var.juniper_device_ip
+  username    = var.juniper_username
+  password    = var.juniper_password
   hostname    = var.juniper_hostname
   loopback_ip = var.juniper_loopback_ip
   asn         = var.juniper_asn
 }
 
 module "paloalto" {
-  source = "./modules/paloalto"
+  source       = "./modules/paloalto"
   object_name  = var.paloalto_object_name
   object_value = var.paloalto_object_value
   object_type  = var.paloalto_object_type
@@ -164,7 +176,9 @@ module "paloalto" {
 }
 
 module "infoblox" {
-  source = "./modules/infoblox"
+  source   = "./modules/infoblox"
+  hostname = var.infoblox_hostname
+  ipv4addr = var.infoblox_ipv4addr
 }
 
 module "f5" {
@@ -189,7 +203,7 @@ module "checkpoint" {
 }
 
 module "fortinet" {
-  source = "./modules/fortinet"
+  source    = "./modules/fortinet"
   addr_name = var.fortinet_addr_name
   subnet    = var.fortinet_subnet
 }
@@ -200,7 +214,7 @@ module "sd_access" {
 }
 
 module "panorama_access" {
-  source = "./modules/panorama-access"
+  source         = "./modules/panorama-access"
   admin_username = var.panorama_admin_username
   admin_password = var.panorama_admin_password
   admin_role     = var.panorama_admin_role
@@ -214,19 +228,19 @@ output "status" {
   value = "Provisioning completed. Check individual module outputs for details."
 }
 
-output "juniper_device_ip"      { value = module.juniper.device_ip }
-output "juniper_hostname"       { value = module.juniper.hostname }
-output "juniper_loopback_ip"    { value = module.juniper.loopback_ip }
+output "juniper_device_ip"   { value = module.juniper.device_ip }
+output "juniper_hostname"    { value = module.juniper.hostname }
+output "juniper_loopback_ip" { value = module.juniper.loopback_ip }
 
-output "paloalto_object_name"   { value = module.paloalto.object_name }
-output "paloalto_object_type"   { value = module.paloalto.object_type }
-output "paloalto_object_tags"   { value = module.paloalto.object_tags }
+output "paloalto_object_name" { value = module.paloalto.object_name }
+output "paloalto_object_type" { value = module.paloalto.object_type }
+output "paloalto_object_tags" { value = module.paloalto.object_tags }
 
-output "sd_access_site_name"    { value = module.sd_access.site_name }
+output "sd_access_site_name" { value = module.sd_access.site_name }
 
 output "panorama_admin_username" { value = module.panorama_access.admin_username }
 
-output "zscaler_rule_name"      { value = module.zscaler.rule_name }
+output "zscaler_rule_name" { value = module.zscaler.rule_name }
 
 output "aws_module_outputs" {
   description = "Outputs from AWS module"
