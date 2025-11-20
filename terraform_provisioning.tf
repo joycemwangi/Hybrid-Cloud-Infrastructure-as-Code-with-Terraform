@@ -103,7 +103,6 @@ module "juniper" {
   username  = var.juniper_username
   password  = var.juniper_password
 
-  # Only include these if you defined them in variables.tf & module variables
   hostname    = var.juniper_hostname
   loopback_ip = var.juniper_loopback_ip
   asn         = var.juniper_asn
@@ -159,16 +158,24 @@ module "sd_access" {
   site_name = var.site_name
 }
 
+module "panorama_access" {
+  source = "./modules/panorama-access"
+
+  admin_username = var.panorama_admin_username
+  admin_password = var.panorama_admin_password
+  admin_role     = var.panorama_admin_role
+}
+
 ##########################################
 # Outputs
 ##########################################
 
 # Global status
 output "status" {
-  value = "✅ Provisioning completed. Check individual module outputs for details."
+  value = "Provisioning completed. Check individual module outputs for details."
 }
 
-# Juniper-specific outputs (match outputs in ./modules/juniper/outputs.tf)
+# Juniper-specific outputs
 output "juniper_device_ip" {
   value = module.juniper.device_ip
 }
@@ -181,7 +188,7 @@ output "juniper_loopback_ip" {
   value = module.juniper.loopback_ip
 }
 
-# Palo Alto-specific outputs (match outputs in ./modules/paloalto/outputs.tf)
+# Palo Alto-specific outputs
 output "paloalto_object_name" {
   value = module.paloalto.object_name
 }
@@ -194,7 +201,12 @@ output "paloalto_object_tags" {
   value = module.paloalto.object_tags
 }
 
-# SD-Access-specific output (matches ./modules/sd_access/outputs.tf)
+# SD-Access-specific output
 output "sd_access_site_name" {
   value = module.sd_access.site_name
+}
+
+# Panorama Admin output
+output "panorama_admin_username" {
+  value = module.panorama_access.admin_username
 }
