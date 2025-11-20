@@ -20,7 +20,11 @@ location = "East US"
 ############################
 # AWS Configuration
 ############################
-aws_region = "us-east-1"
+aws_region             = "us-east-1"
+aws_vpc_cidr           = "10.0.0.0/16"
+aws_public_subnet_cidr = "10.0.1.0/24"
+aws_public_subnet_az   = "us-east-1a"
+project_name           = "multivendor-demo"
 
 ############################
 # GCP Configuration
@@ -31,11 +35,11 @@ gcp_region  = "europe-west1"
 ############################
 # Oracle Cloud (OCI) Configuration
 ############################
-oci_tenancy_ocid       = "ocid1.tenancy.oc1..example"
-oci_user_ocid          = "ocid1.user.oc1..example"
-oci_fingerprint        = "12:34:56:78:90:ab:cd:ef:12:34:56:78:90:ab:cd:ef"
-oci_private_key_path   = "~/.oci/oci_api_key.pem"
-oci_region             = "eu-frankfurt-1"
+oci_tenancy_ocid     = "ocid1.tenancy.oc1..example"
+oci_user_ocid        = "ocid1.user.oc1..example"
+oci_fingerprint      = "12:34:56:78:90:ab:cd:ef:12:34:56:78:90:ab:cd:ef"
+oci_private_key_path = "~/.oci/oci_api_key.pem"
+oci_region           = "eu-frankfurt-1"
 
 ############################
 # Infoblox Configuration
@@ -43,6 +47,9 @@ oci_region             = "eu-frankfurt-1"
 infoblox_username = "REPLACE_ME"
 infoblox_password = "REPLACE_ME"
 infoblox_server   = "infoblox.example.local"
+
+infoblox_hostname = "demo-host.example.local"
+infoblox_ipv4addr = "192.0.2.10"
 
 ############################
 # F5 BIG-IP Configuration
@@ -107,7 +114,6 @@ juniper_device_ip = "192.168.50.2"
 juniper_username  = "REPLACE_ME"
 juniper_password  = "REPLACE_ME"
 
-# Optional Juniper advanced settings
 juniper_hostname    = "juniper-core-01"
 juniper_loopback_ip = "10.255.255.1/32"
 juniper_asn         = 65001
