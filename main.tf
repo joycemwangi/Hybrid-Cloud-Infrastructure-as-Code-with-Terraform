@@ -1,4 +1,4 @@
-# monorepo/terraform_provisioning.tf
+# monorepo/main.tf
 # Terraform entrypoint for provisioning multi-vendor network infrastructure
 
 terraform {
@@ -46,25 +46,21 @@ terraform {
       version = ">= 0.6.0"
     }
 
-    # For null_resource used in IOS and Juniper modules
     null = {
       source  = "hashicorp/null"
       version = ">= 3.0.0"
     }
 
-    # AWS
     aws = {
       source  = "hashicorp/aws"
       version = "~> 5.0"
     }
 
-    # GCP
     google = {
       source  = "hashicorp/google"
       version = "~> 5.0"
     }
 
-    # Oracle Cloud Infrastructure (OCI)
     oci = {
       source  = "oracle/oci"
       version = "~> 6.0"
@@ -98,18 +94,15 @@ provider "zscaler" {
   api_key  = var.zscaler_api_key
 }
 
-# AWS
 provider "aws" {
   region = var.aws_region
 }
 
-# GCP
 provider "google" {
   project = var.gcp_project
   region  = var.gcp_region
 }
 
-# OCI
 provider "oci" {
   tenancy_ocid     = var.oci_tenancy_ocid
   user_ocid        = var.oci_user_ocid
@@ -130,17 +123,14 @@ module "azure" {
 
 module "aws" {
   source = "./modules/aws"
-  # add inputs here if modules/aws/variables.tf defines any required vars
 }
 
 module "gcp" {
   source = "./modules/gcp"
-  # add inputs here if modules/gcp/variables.tf defines any required vars
 }
 
 module "oci" {
   source = "./modules/oci"
-  # add inputs here if modules/oci/variables.tf defines any required vars
 }
 
 module "aci" {
@@ -155,22 +145,18 @@ module "ios" {
   password  = var.cisco_password
 }
 
-# JUNIPER MODULE – UPDATED
 module "juniper" {
   source    = "./modules/juniper"
   device_ip = var.juniper_device_ip
   username  = var.juniper_username
   password  = var.juniper_password
-
   hostname    = var.juniper_hostname
   loopback_ip = var.juniper_loopback_ip
   asn         = var.juniper_asn
 }
 
-# PALO ALTO MODULE – UPDATED
 module "paloalto" {
   source = "./modules/paloalto"
-
   object_name  = var.paloalto_object_name
   object_value = var.paloalto_object_value
   object_type  = var.paloalto_object_type
@@ -197,12 +183,13 @@ module "zscaler" {
 ##########################################
 
 module "checkpoint" {
-  source = "./modules/checkpoint"
+  source     = "./modules/checkpoint"
+  host_name  = var.host_name
+  ip_address = var.ip_address
 }
 
 module "fortinet" {
   source = "./modules/fortinet"
-
   addr_name = var.fortinet_addr_name
   subnet    = var.fortinet_subnet
 }
@@ -214,7 +201,6 @@ module "sd_access" {
 
 module "panorama_access" {
   source = "./modules/panorama-access"
-
   admin_username = var.panorama_admin_username
   admin_password = var.panorama_admin_password
   admin_role     = var.panorama_admin_role
@@ -224,64 +210,35 @@ module "panorama_access" {
 # Outputs
 ##########################################
 
-# Global status
 output "status" {
   value = "Provisioning completed. Check individual module outputs for details."
 }
 
-# Juniper-specific outputs
-output "juniper_device_ip" {
-  value = module.juniper.device_ip
-}
+output "juniper_device_ip"      { value = module.juniper.device_ip }
+output "juniper_hostname"       { value = module.juniper.hostname }
+output "juniper_loopback_ip"    { value = module.juniper.loopback_ip }
 
-output "juniper_hostname" {
-  value = module.juniper.hostname
-}
+output "paloalto_object_name"   { value = module.paloalto.object_name }
+output "paloalto_object_type"   { value = module.paloalto.object_type }
+output "paloalto_object_tags"   { value = module.paloalto.object_tags }
 
-output "juniper_loopback_ip" {
-  value = module.juniper.loopback_ip
-}
+output "sd_access_site_name"    { value = module.sd_access.site_name }
 
-# Palo Alto-specific outputs
-output "paloalto_object_name" {
-  value = module.paloalto.object_name
-}
+output "panorama_admin_username" { value = module.panorama_access.admin_username }
 
-output "paloalto_object_type" {
-  value = module.paloalto.object_type
-}
+output "zscaler_rule_name"      { value = module.zscaler.rule_name }
 
-output "paloalto_object_tags" {
-  value = module.paloalto.object_tags
-}
-
-# SD-Access-specific output
-output "sd_access_site_name" {
-  value = module.sd_access.site_name
-}
-
-# Panorama Admin output
-output "panorama_admin_username" {
-  value = module.panorama_access.admin_username
-}
-
-# Zscaler rule output
-output "zscaler_rule_name" {
-  value = module.zscaler.rule_name
-}
-
-# Optional cloud outputs – adjust names to match your module outputs
 output "aws_module_outputs" {
-  description = "Outputs from AWS module (see modules/aws/outputs.tf)"
+  description = "Outputs from AWS module"
   value       = module.aws
 }
 
 output "gcp_module_outputs" {
-  description = "Outputs from GCP module (see modules/gcp/outputs.tf)"
+  description = "Outputs from GCP module"
   value       = module.gcp
 }
 
 output "oci_module_outputs" {
-  description = "Outputs from OCI module (see modules/oci/outputs.tf)"
+  description = "Outputs from OCI module"
   value       = module.oci
 }
