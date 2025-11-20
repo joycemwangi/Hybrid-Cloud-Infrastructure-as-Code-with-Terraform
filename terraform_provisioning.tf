@@ -135,7 +135,8 @@ module "f5" {
 }
 
 module "zscaler" {
-  source = "./modules/zscaler"
+  source    = "./modules/zscaler"
+  rule_name = var.zscaler_rule_name
 }
 
 ##########################################
@@ -209,4 +210,9 @@ output "sd_access_site_name" {
 # Panorama Admin output
 output "panorama_admin_username" {
   value = module.panorama_access.admin_username
+}
+
+# Zscaler rule output
+output "zscaler_rule_name" {
+  value = module.zscaler.rule_name
 }
