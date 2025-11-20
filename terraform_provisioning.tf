@@ -122,6 +122,27 @@ provider "oci" {
 # Core Modules
 ##########################################
 
+module "azure" {
+  source   = "./modules/azure"
+  rg_name  = var.rg_name
+  location = var.location
+}
+
+module "aws" {
+  source = "./modules/aws"
+  # add inputs here if modules/aws/variables.tf defines any required vars
+}
+
+module "gcp" {
+  source = "./modules/gcp"
+  # add inputs here if modules/gcp/variables.tf defines any required vars
+}
+
+module "oci" {
+  source = "./modules/oci"
+  # add inputs here if modules/oci/variables.tf defines any required vars
+}
+
 module "aci" {
   source      = "./modules/aci"
   tenant_name = var.tenant_name
@@ -154,12 +175,6 @@ module "paloalto" {
   object_value = var.paloalto_object_value
   object_type  = var.paloalto_object_type
   tags         = var.paloalto_tags
-}
-
-module "azure" {
-  source   = "./modules/azure"
-  rg_name  = var.rg_name
-  location = var.location
 }
 
 module "infoblox" {
@@ -253,4 +268,20 @@ output "panorama_admin_username" {
 # Zscaler rule output
 output "zscaler_rule_name" {
   value = module.zscaler.rule_name
+}
+
+# Optional cloud outputs – adjust names to match your module outputs
+output "aws_module_outputs" {
+  description = "Outputs from AWS module (see modules/aws/outputs.tf)"
+  value       = module.aws
+}
+
+output "gcp_module_outputs" {
+  description = "Outputs from GCP module (see modules/gcp/outputs.tf)"
+  value       = module.gcp
+}
+
+output "oci_module_outputs" {
+  description = "Outputs from OCI module (see modules/oci/outputs.tf)"
+  value       = module.oci
 }
