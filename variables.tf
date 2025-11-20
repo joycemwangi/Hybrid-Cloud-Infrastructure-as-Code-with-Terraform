@@ -165,3 +165,12 @@ variable "tenant_name" {
   description = "ACI tenant name"
   type        = string
 }
+
+##########################################################
+# Cisco SD-Access Variables
+##########################################################
+
+variable "site_name" {
+  description = "Name of the SD-Access site to deploy"
+  type        = string
+}
