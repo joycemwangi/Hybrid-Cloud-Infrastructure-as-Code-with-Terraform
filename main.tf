@@ -130,13 +130,16 @@ module "aws" {
 }
 
 module "gcp" {
-  source = "./modules/gcp"
-  # add inputs here if modules/gcp/variables.tf defines any
+  source       = "./modules/gcp"
+  project_id   = var.gcp_project
+  network_name = var.gcp_network_name
+  subnet_name  = var.gcp_subnet_name
+  region       = var.gcp_region
+  subnet_cidr  = var.gcp_subnet_cidr
 }
 
 module "oci" {
   source = "./modules/oci"
-  # add inputs here if modules/oci/variables.tf defines any
 }
 
 module "aci" {
@@ -156,7 +159,6 @@ module "juniper" {
   device_ip = var.juniper_device_ip
   username  = var.juniper_username
   password  = var.juniper_password
-  # If the module is later extended, you can pass hostname/loopback/asn here.
 }
 
 module "paloalto" {
