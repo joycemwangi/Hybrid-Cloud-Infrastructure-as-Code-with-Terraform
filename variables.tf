@@ -2,25 +2,45 @@
 # Root Variables – Used by Modules
 ##########################################################
 
-# Cisco IOS / NX-OS Variables (module "ios")
+# Cisco IOS / NX-OS Variables (passed to module "ios")
 variable "cisco_device_ip" {
-  description = "Management IP of Cisco IOS device"
+  description = "Management IP address of the Cisco IOS device"
   type        = string
 }
 
 variable "cisco_username" {
-  description = "Username for Cisco IOS device"
+  description = "Username for the Cisco IOS device"
   type        = string
 }
 
 variable "cisco_password" {
-  description = "Password for Cisco IOS device"
+  description = "Password for the Cisco IOS device"
   type        = string
   sensitive   = true
 }
 
 ##########################################################
-# F5 BIG-IP Variables (module "f5")
+# Juniper Junos Variables (passed to module "juniper")
+##########################################################
+
+variable "juniper_device_ip" {
+  description = "Management IP address of the Juniper device"
+  type        = string
+}
+
+variable "juniper_username" {
+  description = "Username for the Juniper device"
+  type        = string
+}
+
+variable "juniper_password" {
+  description = "Password for the Juniper device"
+  type        = string
+  sensitive   = true
+}
+
+##########################################################
+# F5 BIG-IP Variables (passed to module "f5")
 ##########################################################
 
 variable "f5_vs_name" {
@@ -29,21 +49,21 @@ variable "f5_vs_name" {
 }
 
 variable "f5_destination" {
-  description = "Destination IP:Port for F5 VS"
+  description = "Destination IP:Port for the F5 Virtual Server"
   type        = string
 }
 
 ##########################################################
-# Fortinet Firewall Variables (module "fortinet")
+# Fortinet FortiOS Variables (passed to module "fortinet")
 ##########################################################
 
 variable "fortinet_addr_name" {
-  description = "Name of Fortinet Firewall Address Object"
+  description = "Name for the Fortinet firewall address object"
   type        = string
 }
 
 variable "fortinet_subnet" {
-  description = "CIDR subnet used in Fortinet Address Object"
+  description = "Subnet for the Fortinet firewall address object (e.g. 10.0.0.0/24)"
   type        = string
 }
 
@@ -56,8 +76,8 @@ variable "infoblox_username" {
 }
 
 variable "infoblox_password" {
-  type        = string
-  sensitive   = true
+  type      = string
+  sensitive = true
 }
 
 variable "infoblox_server" {
@@ -73,8 +93,8 @@ variable "f5_username" {
 }
 
 variable "f5_password" {
-  type        = string
-  sensitive   = true
+  type      = string
+  sensitive = true
 }
 
 variable "zscaler_username" {
@@ -82,17 +102,17 @@ variable "zscaler_username" {
 }
 
 variable "zscaler_password" {
-  type        = string
-  sensitive   = true
+  type      = string
+  sensitive = true
 }
 
 variable "zscaler_api_key" {
-  type        = string
-  sensitive   = true
+  type      = string
+  sensitive = true
 }
 
 ##########################################################
-# Azure Variables (module "azure")
+# Azure Variables (module/azure)
 ##########################################################
 
 variable "rg_name" {
@@ -104,7 +124,7 @@ variable "location" {
 }
 
 ##########################################################
-# ACI Tenant Variables (module "aci")
+# ACI Tenant Variables
 ##########################################################
 
 variable "tenant_name" {
