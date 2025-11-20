@@ -5,10 +5,6 @@
 # ❗ IMPORTANT:
 # This file contains ONLY SAMPLE VALUES.
 # Do NOT store real passwords or secrets here.
-# Use a secrets manager (AWS Secrets Manager, GCP Secret Manager,
-# Azure Key Vault, OCI Vault) for production.
-#
-# Copy this file to terraform.tfvars before running Terraform.
 ###############################################################
 
 ############################
@@ -29,8 +25,13 @@ project_name           = "multivendor-demo"
 ############################
 # GCP Configuration
 ############################
-gcp_project = "example-gcp-project"
-gcp_region  = "europe-west1"
+gcp_project   = "example-gcp-project"
+gcp_region    = "us-central1"
+
+# Required by modules/gcp
+gcp_network_name = "example-network"
+gcp_subnet_name  = "example-subnet"
+gcp_subnet_cidr  = "10.20.0.0/24"
 
 ############################
 # Oracle Cloud (OCI) Configuration
@@ -81,7 +82,7 @@ cisco_username  = "REPLACE_ME"
 cisco_password  = "REPLACE_ME"
 
 ############################
-# Palo Alto Networks (Firewall Objects)
+# Palo Alto Networks
 ############################
 paloalto_object_name  = "example-address-object"
 paloalto_object_value = "10.10.10.0/24"
@@ -110,10 +111,9 @@ fortinet_subnet    = "172.16.1.0/24"
 ############################
 # Juniper Networks
 ############################
-juniper_device_ip = "192.168.50.2"
-juniper_username  = "REPLACE_ME"
-juniper_password  = "REPLACE_ME"
-
+juniper_device_ip   = "192.168.50.2"
+juniper_username    = "REPLACE_ME"
+juniper_password    = "REPLACE_ME"
 juniper_hostname    = "juniper-core-01"
 juniper_loopback_ip = "10.255.255.1/32"
 juniper_asn         = 65001
