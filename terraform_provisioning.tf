@@ -155,7 +155,8 @@ module "fortinet" {
 }
 
 module "sd_access" {
-  source = "./modules/sd_access"
+  source    = "./modules/sd_access"
+  site_name = var.site_name
 }
 
 ##########################################
@@ -191,4 +192,9 @@ output "paloalto_object_type" {
 
 output "paloalto_object_tags" {
   value = module.paloalto.object_tags
+}
+
+# SD-Access-specific output (matches ./modules/sd_access/outputs.tf)
+output "sd_access_site_name" {
+  value = module.sd_access.site_name
 }
