@@ -5,6 +5,8 @@
 # ❗ IMPORTANT:
 # This file contains ONLY SAMPLE VALUES.
 # Do NOT put real passwords or secrets here.
+# In real environments, store sensitive values in a secrets manager
+# (e.g., AWS Secrets Manager) and reference them from Terraform.
 # Copy this file to terraform.tfvars and edit locally.
 ###############################################################
 
