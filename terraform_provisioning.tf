@@ -51,6 +51,24 @@ terraform {
       source  = "hashicorp/null"
       version = ">= 3.0.0"
     }
+
+    # AWS
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.0"
+    }
+
+    # GCP
+    google = {
+      source  = "hashicorp/google"
+      version = "~> 5.0"
+    }
+
+    # Oracle Cloud Infrastructure (OCI)
+    oci = {
+      source  = "oracle/oci"
+      version = "~> 6.0"
+    }
   }
 }
 
@@ -78,6 +96,26 @@ provider "zscaler" {
   username = var.zscaler_username
   password = var.zscaler_password
   api_key  = var.zscaler_api_key
+}
+
+# AWS
+provider "aws" {
+  region = var.aws_region
+}
+
+# GCP
+provider "google" {
+  project = var.gcp_project
+  region  = var.gcp_region
+}
+
+# OCI
+provider "oci" {
+  tenancy_ocid     = var.oci_tenancy_ocid
+  user_ocid        = var.oci_user_ocid
+  fingerprint      = var.oci_fingerprint
+  private_key_path = var.oci_private_key_path
+  region           = var.oci_region
 }
 
 ##########################################
