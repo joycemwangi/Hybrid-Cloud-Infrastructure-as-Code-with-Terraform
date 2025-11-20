@@ -106,7 +106,6 @@ variable "infoblox_server" {
   description = "Infoblox server URL or IP"
 }
 
-# Used by modules/infoblox
 variable "infoblox_hostname" {
   description = "Hostname to register in Infoblox"
   type        = string
