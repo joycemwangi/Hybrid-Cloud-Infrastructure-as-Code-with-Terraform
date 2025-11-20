@@ -1,6 +1,0 @@
-resource "panos_address_object" "example" {
-  name        = "example-address"
-  value       = "192.168.10.1"
-  description = "Terraform provisioned object"
-  vsys        = "vsys1"
-}
