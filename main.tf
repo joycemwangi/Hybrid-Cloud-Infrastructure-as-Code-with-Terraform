@@ -131,12 +131,12 @@ module "aws" {
 
 module "gcp" {
   source = "./modules/gcp"
-  # Add inputs here if modules/gcp/variables.tf defines any required variables
+  # add inputs here if modules/gcp/variables.tf defines any
 }
 
 module "oci" {
   source = "./modules/oci"
-  # Add inputs here if modules/oci/variables.tf defines any required variables
+  # add inputs here if modules/oci/variables.tf defines any
 }
 
 module "aci" {
@@ -156,7 +156,7 @@ module "juniper" {
   device_ip = var.juniper_device_ip
   username  = var.juniper_username
   password  = var.juniper_password
-  # If you later extend the module, you can pass hostname/loopback/asn here.
+  # If the module is later extended, you can pass hostname/loopback/asn here.
 }
 
 module "paloalto" {
@@ -224,7 +224,6 @@ output "juniper_device_ip" {
   value = module.juniper.device_ip
 }
 
-# These will be null unless the juniper module exports them; try() avoids crashes.
 output "juniper_hostname" {
   value = try(module.juniper.hostname, null)
 }
