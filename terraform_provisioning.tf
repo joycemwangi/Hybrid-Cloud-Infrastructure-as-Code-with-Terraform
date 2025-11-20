@@ -45,6 +45,12 @@ terraform {
       source  = "CiscoDevNet/aci"
       version = ">= 0.6.0"
     }
+
+    # For null_resource used in IOS and Juniper modules
+    null = {
+      source  = "hashicorp/null"
+      version = ">= 3.0.0"
+    }
   }
 }
 
@@ -84,10 +90,17 @@ module "aci" {
 }
 
 module "ios" {
-  source   = "./modules/cisco_ios"
+  source    = "./modules/cisco_ios"
   device_ip = var.cisco_device_ip
   username  = var.cisco_username
   password  = var.cisco_password
+}
+
+module "juniper" {
+  source    = "./modules/juniper"
+  device_ip = var.juniper_device_ip
+  username  = var.juniper_username
+  password  = var.juniper_password
 }
 
 module "paloalto" {
@@ -95,8 +108,8 @@ module "paloalto" {
 }
 
 module "azure" {
-  source  = "./modules/azure"
-  rg_name = var.rg_name
+  source   = "./modules/azure"
+  rg_name  = var.rg_name
   location = var.location
 }
 
@@ -127,10 +140,6 @@ module "fortinet" {
 
   addr_name = var.fortinet_addr_name
   subnet    = var.fortinet_subnet
-}
-
-module "juniper" {
-  source = "./modules/juniper"
 }
 
 module "sd_access" {
