@@ -50,12 +50,19 @@ cisco_username  = "REPLACE_ME_USERNAME"
 cisco_password  = "REPLACE_ME_PASSWORD"
 
 ############################
-# Palo Alto Networks
+# Palo Alto Networks (Firewall Objects)
 ############################
 paloalto_object_name  = "example-address-object"
 paloalto_object_value = "10.10.10.0/24"
 paloalto_object_type  = "ip-netmask"     # ip-netmask | ip-range | fqdn | ip-wildcard
 paloalto_tags         = ["example", "terraform-managed"]
+
+############################
+# Panorama Admin Access
+############################
+panorama_admin_username = "netadmin"
+panorama_admin_password = "REPLACE_ME_SECRET_MANAGER_LOOKUP"  # Example: data.aws_secretsmanager_secret_version.panorama.value
+panorama_admin_role     = "superuser"
 
 ############################
 # Check Point Configuration
