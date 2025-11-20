@@ -1,8 +1,7 @@
 ##########################################################
-# Root Variables – Used by Modules
+# Cisco IOS / NX-OS Variables
 ##########################################################
 
-# Cisco IOS / NX-OS Variables (passed to module "ios")
 variable "cisco_device_ip" {
   description = "Management IP address of the Cisco IOS device"
   type        = string
@@ -20,7 +19,7 @@ variable "cisco_password" {
 }
 
 ##########################################################
-# Juniper Junos Variables (passed to module "juniper")
+# Juniper Junos Variables
 ##########################################################
 
 variable "juniper_device_ip" {
@@ -40,7 +39,7 @@ variable "juniper_password" {
 }
 
 ##########################################################
-# F5 BIG-IP Variables (passed to module "f5")
+# F5 BIG-IP Variables
 ##########################################################
 
 variable "f5_vs_name" {
@@ -53,8 +52,24 @@ variable "f5_destination" {
   type        = string
 }
 
+variable "f5_address" {
+  description = "Management IP or DNS of the F5 device"
+  type        = string
+}
+
+variable "f5_username" {
+  description = "Username for the F5 device"
+  type        = string
+}
+
+variable "f5_password" {
+  description = "Password for the F5 device"
+  type        = string
+  sensitive   = true
+}
+
 ##########################################################
-# Fortinet FortiOS Variables (passed to module "fortinet")
+# Fortinet FortiOS Variables
 ##########################################################
 
 variable "fortinet_addr_name" {
@@ -68,7 +83,33 @@ variable "fortinet_subnet" {
 }
 
 ##########################################################
-# Provider Credentials (from terraform.tfvars)
+# Palo Alto PAN-OS Variables
+##########################################################
+
+variable "paloalto_object_name" {
+  description = "Name of the Palo Alto address object"
+  type        = string
+}
+
+variable "paloalto_object_value" {
+  description = "Value of the Palo Alto address object (IP, CIDR, IP-range, FQDN)"
+  type        = string
+}
+
+variable "paloalto_object_type" {
+  description = "Type of address object (ip-netmask, ip-range, fqdn, ip-wildcard)"
+  type        = string
+  default     = "ip-netmask"
+}
+
+variable "paloalto_tags" {
+  description = "List of tags to apply to the Palo Alto object"
+  type        = list(string)
+  default     = ["terraform-managed"]
+}
+
+##########################################################
+# Infoblox Provider Credentials
 ##########################################################
 
 variable "infoblox_username" {
@@ -84,18 +125,9 @@ variable "infoblox_server" {
   type = string
 }
 
-variable "f5_address" {
-  type = string
-}
-
-variable "f5_username" {
-  type = string
-}
-
-variable "f5_password" {
-  type      = string
-  sensitive = true
-}
+##########################################################
+# Zscaler ZIA Provider Credentials
+##########################################################
 
 variable "zscaler_username" {
   type = string
@@ -112,21 +144,24 @@ variable "zscaler_api_key" {
 }
 
 ##########################################################
-# Azure Variables (module/azure)
+# Azure (passed to module/azure)
 ##########################################################
 
 variable "rg_name" {
-  type = string
+  description = "Azure Resource Group name"
+  type        = string
 }
 
 variable "location" {
-  type = string
+  description = "Azure region for deployment"
+  type        = string
 }
 
 ##########################################################
-# ACI Tenant Variables
+# Cisco ACI Variables
 ##########################################################
 
 variable "tenant_name" {
-  type = string
+  description = "ACI tenant name"
+  type        = string
 }
