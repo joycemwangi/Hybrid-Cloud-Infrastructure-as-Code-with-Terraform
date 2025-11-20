@@ -201,3 +201,55 @@ variable "panorama_admin_role" {
   type        = string
   default     = "superuser"
 }
+
+##########################################################
+# AWS Variables
+##########################################################
+
+variable "aws_region" {
+  description = "AWS region for deployment (e.g. us-east-1)"
+  type        = string
+}
+
+##########################################################
+# GCP Variables
+##########################################################
+
+variable "gcp_project" {
+  description = "GCP project ID"
+  type        = string
+}
+
+variable "gcp_region" {
+  description = "GCP region for deployment (e.g. europe-west1)"
+  type        = string
+}
+
+##########################################################
+# OCI Variables
+##########################################################
+
+variable "oci_tenancy_ocid" {
+  description = "OCI tenancy OCID"
+  type        = string
+}
+
+variable "oci_user_ocid" {
+  description = "OCI user OCID"
+  type        = string
+}
+
+variable "oci_fingerprint" {
+  description = "OCI API key fingerprint"
+  type        = string
+}
+
+variable "oci_private_key_path" {
+  description = "Path to the OCI API private key file"
+  type        = string
+}
+
+variable "oci_region" {
+  description = "OCI region identifier (e.g. eu-frankfurt-1)"
+  type        = string
+}
