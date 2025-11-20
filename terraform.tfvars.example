@@ -1,13 +1,14 @@
 ###############################################################
 # terraform.tfvars.example
-# Example variable values for multi-vendor Terraform automation
-# --------------------------------------------------------------
+# Sample variable values for multi-vendor Terraform automation
+#
 # ❗ IMPORTANT:
 # This file contains ONLY SAMPLE VALUES.
-# Do NOT put real passwords or secrets here.
-# In real environments, store sensitive values in a secrets manager
-# (e.g., AWS Secrets Manager) and reference them from Terraform.
-# Copy this file to terraform.tfvars and edit locally.
+# Do NOT store real passwords or secrets here.
+# Use a secrets manager (AWS Secrets Manager, GCP Secret Manager,
+# Azure Key Vault, OCI Vault) for production.
+#
+# Copy this file to terraform.tfvars before running Terraform.
 ###############################################################
 
 ############################
@@ -30,8 +31,8 @@ gcp_region  = "europe-west1"
 ############################
 # Oracle Cloud (OCI) Configuration
 ############################
-oci_tenancy_ocid       = "ocid1.tenancy.oc1..exampleuniqueID"
-oci_user_ocid          = "ocid1.user.oc1..exampleuniqueID"
+oci_tenancy_ocid       = "ocid1.tenancy.oc1..example"
+oci_user_ocid          = "ocid1.user.oc1..example"
 oci_fingerprint        = "12:34:56:78:90:ab:cd:ef:12:34:56:78:90:ab:cd:ef"
 oci_private_key_path   = "~/.oci/oci_api_key.pem"
 oci_region             = "eu-frankfurt-1"
@@ -39,26 +40,26 @@ oci_region             = "eu-frankfurt-1"
 ############################
 # Infoblox Configuration
 ############################
-infoblox_username = "REPLACE_ME_USERNAME"
-infoblox_password = "REPLACE_ME_PASSWORD"
+infoblox_username = "REPLACE_ME"
+infoblox_password = "REPLACE_ME"
 infoblox_server   = "infoblox.example.local"
 
 ############################
 # F5 BIG-IP Configuration
 ############################
 f5_address     = "10.0.1.20"
-f5_username    = "REPLACE_ME_USERNAME"
-f5_password    = "REPLACE_ME_PASSWORD"
+f5_username    = "REPLACE_ME"
+f5_password    = "REPLACE_ME"
 f5_vs_name     = "example-virtual-server"
 f5_destination = "10.0.1.100:80"
 
 ############################
 # Zscaler Configuration
 ############################
-zscaler_username   = "replace@example.com"
-zscaler_password   = "REPLACE_ME_PASSWORD"
-zscaler_api_key    = "REPLACE_ME_API_KEY"
-zscaler_rule_name  = "Allow-HTTP"
+zscaler_username  = "replace@example.com"
+zscaler_password  = "REPLACE_ME"
+zscaler_api_key   = "REPLACE_ME"
+zscaler_rule_name = "Allow-HTTP"
 
 ############################
 # Cisco ACI
@@ -69,22 +70,22 @@ tenant_name = "Example-Tenant"
 # Cisco IOS / NX-OS
 ############################
 cisco_device_ip = "192.168.100.10"
-cisco_username  = "REPLACE_ME_USERNAME"
-cisco_password  = "REPLACE_ME_PASSWORD"
+cisco_username  = "REPLACE_ME"
+cisco_password  = "REPLACE_ME"
 
 ############################
 # Palo Alto Networks (Firewall Objects)
 ############################
 paloalto_object_name  = "example-address-object"
 paloalto_object_value = "10.10.10.0/24"
-paloalto_object_type  = "ip-netmask"     # ip-netmask | ip-range | fqdn | ip-wildcard
+paloalto_object_type  = "ip-netmask"
 paloalto_tags         = ["example", "terraform-managed"]
 
 ############################
 # Panorama Admin Access
 ############################
 panorama_admin_username = "netadmin"
-panorama_admin_password = "REPLACE_ME_SECRET_MANAGER_LOOKUP"  
+panorama_admin_password = "REPLACE_ME"
 panorama_admin_role     = "superuser"
 
 ############################
@@ -102,9 +103,9 @@ fortinet_subnet    = "172.16.1.0/24"
 ############################
 # Juniper Networks
 ############################
-juniper_device_ip   = "192.168.50.2"
-juniper_username    = "REPLACE_ME_USERNAME"
-juniper_password    = "REPLACE_ME_PASSWORD"
+juniper_device_ip = "192.168.50.2"
+juniper_username  = "REPLACE_ME"
+juniper_password  = "REPLACE_ME"
 
 # Optional Juniper advanced settings
 juniper_hostname    = "juniper-core-01"
