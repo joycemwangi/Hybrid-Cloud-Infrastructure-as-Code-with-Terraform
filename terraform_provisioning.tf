@@ -109,8 +109,14 @@ module "juniper" {
   asn         = var.juniper_asn
 }
 
+# PALO ALTO MODULE – UPDATED
 module "paloalto" {
   source = "./modules/paloalto"
+
+  object_name  = var.paloalto_object_name
+  object_value = var.paloalto_object_value
+  object_type  = var.paloalto_object_type
+  tags         = var.paloalto_tags
 }
 
 module "azure" {
@@ -172,4 +178,17 @@ output "juniper_hostname" {
 
 output "juniper_loopback_ip" {
   value = module.juniper.loopback_ip
+}
+
+# Palo Alto-specific outputs (match outputs in ./modules/paloalto/outputs.tf)
+output "paloalto_object_name" {
+  value = module.paloalto.object_name
+}
+
+output "paloalto_object_type" {
+  value = module.paloalto.object_type
+}
+
+output "paloalto_object_tags" {
+  value = module.paloalto.object_tags
 }
