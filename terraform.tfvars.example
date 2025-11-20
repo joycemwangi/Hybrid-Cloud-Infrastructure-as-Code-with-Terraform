@@ -24,10 +24,10 @@ infoblox_server   = "infoblox.example.local"
 ############################
 # F5 BIG-IP Configuration
 ############################
-f5_address    = "10.0.1.20"
-f5_username   = "REPLACE_ME_USERNAME"
-f5_password   = "REPLACE_ME_PASSWORD"
-f5_vs_name    = "example-virtual-server"
+f5_address     = "10.0.1.20"
+f5_username    = "REPLACE_ME_USERNAME"
+f5_password    = "REPLACE_ME_PASSWORD"
+f5_vs_name     = "example-virtual-server"
 f5_destination = "10.0.1.100:80"
 
 ############################
@@ -72,12 +72,12 @@ fortinet_subnet    = "172.16.1.0/24"
 ############################
 # Juniper Networks
 ############################
-juniper_device_ip = "192.168.50.2"
-juniper_username  = "REPLACE_ME_USERNAME"
-juniper_password  = "REPLACE_ME_PASSWORD"
+juniper_device_ip   = "192.168.50.2"
+juniper_username    = "REPLACE_ME_USERNAME"
+juniper_password    = "REPLACE_ME_PASSWORD"
 
 # Optional Juniper advanced settings
-juniper_hostname  = "juniper-core-01"
+juniper_hostname    = "juniper-core-01"
 juniper_loopback_ip = "10.255.255.1/32"
 juniper_asn         = 65001
 
