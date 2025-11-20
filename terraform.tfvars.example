@@ -15,6 +15,26 @@ rg_name  = "example-resource-group"
 location = "East US"
 
 ############################
+# AWS Configuration
+############################
+aws_region = "us-east-1"
+
+############################
+# GCP Configuration
+############################
+gcp_project = "example-gcp-project"
+gcp_region  = "europe-west1"
+
+############################
+# Oracle Cloud (OCI) Configuration
+############################
+oci_tenancy_ocid       = "ocid1.tenancy.oc1..exampleuniqueID"
+oci_user_ocid          = "ocid1.user.oc1..exampleuniqueID"
+oci_fingerprint        = "12:34:56:78:90:ab:cd:ef:12:34:56:78:90:ab:cd:ef"
+oci_private_key_path   = "~/.oci/oci_api_key.pem"
+oci_region             = "eu-frankfurt-1"
+
+############################
 # Infoblox Configuration
 ############################
 infoblox_username = "REPLACE_ME_USERNAME"
@@ -62,7 +82,7 @@ paloalto_tags         = ["example", "terraform-managed"]
 # Panorama Admin Access
 ############################
 panorama_admin_username = "netadmin"
-panorama_admin_password = "REPLACE_ME_SECRET_MANAGER_LOOKUP"  # Example: data.aws_secretsmanager_secret_version.panorama.value
+panorama_admin_password = "REPLACE_ME_SECRET_MANAGER_LOOKUP"  
 panorama_admin_role     = "superuser"
 
 ############################
