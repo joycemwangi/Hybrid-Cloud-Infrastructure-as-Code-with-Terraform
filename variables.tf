@@ -174,3 +174,24 @@ variable "site_name" {
   description = "Name of the SD-Access site to deploy"
   type        = string
 }
+
+##########################################################
+# Panorama Admin Access Variables
+##########################################################
+
+variable "panorama_admin_username" {
+  description = "Panorama admin username to create"
+  type        = string
+}
+
+variable "panorama_admin_password" {
+  description = "Panorama admin password (retrieved from AWS Secrets Manager)"
+  type        = string
+  sensitive   = true
+}
+
+variable "panorama_admin_role" {
+  description = "Role for the Panorama admin user (superuser, deviceadmin, vsysadmin...)"
+  type        = string
+  default     = "superuser"
+}
