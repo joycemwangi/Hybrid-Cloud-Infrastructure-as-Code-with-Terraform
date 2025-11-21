@@ -1,13 +1,11 @@
 output "object_name" {
-  value = paloalto_address_object.core_firewall_obj.name
+  value = null_resource.core_firewall_obj.triggers.object_name
 }
 
-# NEW — show actual object type
 output "object_type" {
-  value = paloalto_address_object.core_firewall_obj.type
+  value = null_resource.core_firewall_obj.triggers.object_type
 }
 
-# NEW — show applied tags
 output "object_tags" {
-  value = paloalto_address_object.core_firewall_obj.tag
+  value = split(",", null_resource.core_firewall_obj.triggers.tags)
 }

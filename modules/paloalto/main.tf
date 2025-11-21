@@ -1,7 +1,11 @@
-resource "panos_address_object" "core_firewall_obj" {
-  name        = var.object_name
-  value       = var.object_value
-  type        = var.object_type
-  tags        = var.tags
-  description = "Managed by Terraform"
+# modules/paloalto/main.tf
+# Demo placeholder for Palo Alto address object
+
+resource "null_resource" "core_firewall_obj" {
+  triggers = {
+    object_name  = var.object_name
+    object_value = var.object_value
+    object_type  = var.object_type
+    tags         = join(",", var.tags)
+  }
 }

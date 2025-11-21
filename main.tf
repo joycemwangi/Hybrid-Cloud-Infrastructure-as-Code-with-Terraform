@@ -139,7 +139,13 @@ module "gcp" {
 }
 
 module "oci" {
-  source = "./modules/oci"
+  source              = "./modules/oci"
+  compartment_id      = var.oci_compartment_id
+  vcn_display_name    = var.oci_vcn_display_name
+  vcn_cidr            = var.oci_vcn_cidr
+  dns_label           = var.oci_dns_label
+  subnet_display_name = var.oci_subnet_display_name
+  subnet_cidr         = var.oci_subnet_cidr
 }
 
 module "aci" {
@@ -219,7 +225,7 @@ module "panorama_access" {
 ##########################################
 
 output "status" {
-  value = "Provisioning completed. Check individual module outputs for details."
+  value = "Provisioning completed. Check module outputs."
 }
 
 output "juniper_device_ip" {
@@ -259,16 +265,13 @@ output "zscaler_rule_name" {
 }
 
 output "aws_module_outputs" {
-  description = "Outputs from AWS module"
-  value       = module.aws
+  value = module.aws
 }
 
 output "gcp_module_outputs" {
-  description = "Outputs from GCP module"
-  value       = module.gcp
+  value = module.gcp
 }
 
 output "oci_module_outputs" {
-  description = "Outputs from OCI module"
-  value       = module.oci
+  value = module.oci
 }

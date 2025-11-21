@@ -45,7 +45,25 @@ variable "gcp_region" {
   default     = "us-central1"
 }
 
-# OCI
+variable "gcp_network_name" {
+  description = "GCP VPC network name"
+  type        = string
+  default     = "demo-network"
+}
+
+variable "gcp_subnet_name" {
+  description = "GCP subnet name"
+  type        = string
+  default     = "demo-subnet"
+}
+
+variable "gcp_subnet_cidr" {
+  description = "CIDR block for the GCP subnet"
+  type        = string
+  default     = "10.20.0.0/24"
+}
+
+# OCI (Provider-level auth)
 variable "oci_tenancy_ocid" {
   description = "OCI tenancy OCID"
   type        = string
@@ -70,6 +88,42 @@ variable "oci_region" {
   description = "OCI region"
   type        = string
   default     = "us-ashburn-1"
+}
+
+# OCI (Module-level networking)
+variable "oci_compartment_id" {
+  description = "OCI compartment OCID where VCN and subnet will be created"
+  type        = string
+}
+
+variable "oci_vcn_display_name" {
+  description = "Display name for the OCI VCN"
+  type        = string
+  default     = "demo-vcn"
+}
+
+variable "oci_vcn_cidr" {
+  description = "CIDR block for the OCI VCN"
+  type        = string
+  default     = "10.30.0.0/16"
+}
+
+variable "oci_dns_label" {
+  description = "DNS label for the OCI VCN"
+  type        = string
+  default     = "demovcn"
+}
+
+variable "oci_subnet_display_name" {
+  description = "Display name for the OCI subnet"
+  type        = string
+  default     = "demo-subnet"
+}
+
+variable "oci_subnet_cidr" {
+  description = "CIDR block for the OCI subnet"
+  type        = string
+  default     = "10.30.1.0/24"
 }
 
 ##############################################

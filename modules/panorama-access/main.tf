@@ -1,6 +1,9 @@
-resource "panos_panorama_admin" "admin_user" {
-  name     = var.admin_username
-  password = var.admin_password
-  role     = var.admin_role
-}
+# modules/panorama-access/main.tf
+# Demo placeholder for Panorama admin user
 
+resource "null_resource" "admin_user" {
+  triggers = {
+    admin_username = var.admin_username
+    admin_role     = var.admin_role
+  }
+}
