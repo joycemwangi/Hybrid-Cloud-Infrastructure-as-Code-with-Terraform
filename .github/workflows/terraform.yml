@@ -26,14 +26,10 @@ jobs:
         run: terraform fmt -check
 
       - name: Terraform Init
-        run: terraform init
+        run: terraform init -input=false
 
       - name: Terraform Validate
         run: terraform validate
-        
-      - name: List files
-        run: ls -R
 
-
-
-
+      - name: Show directory structure (debug)
+        run: ls -R .
