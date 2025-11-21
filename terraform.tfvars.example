@@ -25,8 +25,8 @@ project_name           = "multivendor-demo"
 ############################
 # GCP Configuration
 ############################
-gcp_project   = "example-gcp-project"
-gcp_region    = "us-central1"
+gcp_project = "example-gcp-project"
+gcp_region  = "us-central1"
 
 # Required by modules/gcp
 gcp_network_name = "example-network"
@@ -41,6 +41,14 @@ oci_user_ocid        = "ocid1.user.oc1..example"
 oci_fingerprint      = "12:34:56:78:90:ab:cd:ef:12:34:56:78:90:ab:cd:ef"
 oci_private_key_path = "~/.oci/oci_api_key.pem"
 oci_region           = "eu-frankfurt-1"
+
+# Fake / demo-only values for OCI networking
+oci_compartment_id      = "ocid1.compartment.oc1..demoexamplecompartmentid"
+oci_dns_label           = "demovcn"
+oci_vcn_display_name    = "demo-vcn"
+oci_vcn_cidr            = "10.30.0.0/16"
+oci_subnet_display_name = "demo-subnet"
+oci_subnet_cidr         = "10.30.0.0/24"
 
 ############################
 # Infoblox Configuration
