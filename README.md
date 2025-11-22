@@ -1,21 +1,75 @@
-# Terraform Provisioning Project
+# Terraform IaC Hybrid Deployments
 
-## Overview
-This project contains Terraform configurations and supporting scripts to provision infrastructure.
+Automated Terraform IaC framework for **hybrid cloud** and **multi-vendor network automation**.  
+Supports AWS, Azure, GCP, OCI (demo), and network/security platforms such as **Cisco ACI/IOS/SD-Access & Panorama**, **Palo Alto**, **Fortinet**, **Juniper**, **F5**, **Infoblox**, **Zscaler**, and **Check Point**.
 
-## Project Structure
-- `terraform_provisioning.tf` — Main Terraform configuration file
-- `terraform.tfvars` — Variables values file for environment-specific settings
-- `module/` — Reusable Terraform modules
-- `script/` — Automation and helper scripts
+This repo is designed as a **portfolio / reference implementation** to show how you structure multi-cloud, multi-vendor automation safely.
 
-## Prerequisites
-- Terraform installed (version 1.0 or higher recommended)
-- AWS CLI / Azure CLI / other cloud CLIs installed if applicable
-- Appropriate permissions to provision infrastructure
+---
 
-## Usage
+## 🔧 Features
 
-1. Initialize Terraform:
-   ```bash
-   terraform init
+- **Hybrid-cloud IaC**
+  - AWS VPC + subnet
+  - Azure resource group
+  - GCP VPC network + subnet
+  - OCI VCN + subnet (using *demo* OCIDs by default)
+
+- **Network & Security Vendors**
+  - Cisco IOS / NX-OS
+  - Cisco ACI
+  - Cisco SD-Access
+  - Palo Alto firewalls + Panorama
+  - Fortinet / FortiGate
+  - Juniper
+  - F5 BIG-IP
+  - Infoblox
+  - Zscaler
+  - Check Point
+
+- **Safe “demo mode”**
+  - Cloud providers are wired for real use but require credentials.
+  - Vendor modules use `null_resource` with `triggers` – you can see planned changes without touching real devices.
+  - OCI uses dummy OCIDs by default so it never hits a real tenancy.
+
+- **GitHub Actions CI**
+  - `terraform.yml` – Terraform **fmt + init + validate**
+  - `terraform-docs.yml` – Auto-generate module docs into `README.md` snippets
+  - `tflint.yml` – **TFLint static analysis (soft-fail)** for Terraform best practices
+  - `checkov.yml` – **Checkov security scan (soft-fail)** for IaC misconfigurations
+  - `terraform-fmt-autocommit.yml` – optional **auto-format & auto-commit** on PRs
+  - `infracost.yml` – **Infracost “presentation mode”** (only runs if `INFRACOST_API_KEY` secret is set; otherwise it’s a no-op and never fails)
+
+---
+
+## 📁 Repository Structure
+
+```text
+.
+├── main.tf                  # Root module wiring all sub-modules
+├── variables.tf             # Input variable definitions
+├── terraform.tfvars         # Local variable values (git-ignored)
+├── terraform.tfvars.example # Sample config with safe demo values
+├── modules/
+│   ├── aws/                 # AWS VPC + subnet
+│   ├── azure/               # Azure resource group
+│   ├── gcp/                 # GCP VPC network + subnet
+│   ├── oci/                 # OCI VCN + subnet (demo OCIDs)
+│   ├── aci/                 # Cisco ACI
+│   ├── cisco_ios/           # Cisco IOS / NX-OS
+│   ├── juniper/             # Juniper devices
+│   ├── paloalto/            # Palo Alto firewall objects
+│   ├── panorama-access/     # Panorama admin users
+│   ├── fortinet/            # Fortinet address objects
+│   ├── checkpoint/          # Check Point host objects
+│   ├── f5/                  # F5 virtual server (null_resource)
+│   ├── infoblox/            # Infoblox DNS records (null_resource)
+│   ├── zscaler/             # Zscaler rules (null_resource)
+│   └── sd_access/           # Cisco SD-Access fabric placeholder
+└── .github/workflows/
+    ├── terraform.yml                # Validate Terraform
+    ├── terraform-docs.yml           # Generate docs
+    ├── terraform-fmt-autocommit.yml # Auto-format on PRs
+    ├── tflint.yml                   # TFLint (soft-fail)
+    ├── checkov.yml                  # Checkov (soft-fail)
+    └── infracost.yml                # Cost estimation stub
