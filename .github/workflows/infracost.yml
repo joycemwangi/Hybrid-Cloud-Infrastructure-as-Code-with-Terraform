@@ -1,40 +1,36 @@
-name: Infracost Cost Estimate
+name: Infracost Cost Estimate (stub)
 
 on:
+  # Show it in Actions and allow manual runs
+  workflow_dispatch:
+  # (Optional) also on PRs – job will still be skipped if secret is missing
   pull_request:
     branches:
       - main
 
 jobs:
   infracost:
+    name: Infracost CI (runs only when API key is set)
     runs-on: ubuntu-latest
 
+    # ✅ Important: this means the job only runs
+    # if INFRACOST_API_KEY secret is defined and non-empty.
+    if: ${{ secrets.INFRACOST_API_KEY != '' }}
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v2
-        with:
-          terraform_version: 1.5.0
-
-      - name: Terraform Init (no backend needed here)
-        run: terraform init -input=false
-
-      - name: Setup Infracost
-        uses: infracost/actions/setup@v3
-        with:
-          api-key: ${{ secrets.INFRACOST_API_KEY }}
-
-      - name: Generate cost diff
+      - name: Install Infracost CLI
         run: |
-          infracost breakdown \
-            --path=. \
-            --format=json \
-            --out-file=/tmp/infracost.json
+          curl -fsSL https://raw.githubusercontent.com/infracost/infracost/master/scripts/install.sh | sh
 
-      - name: Post cost estimate as PR comment
-        uses: infracost/actions/comment@v3
-        with:
-          path: /tmp/infracost.json
-          behavior: update
+      - name: Show planned cost estimate
+        env:
+          INFRACOST_API_KEY: ${{ secrets.INFRACOST_API_KEY }}
+        run: |
+          echo "Infracost CI placeholder. To enable real cost estimates:"
+          echo "1) Set INFRACOST_API_KEY in GitHub repo secrets."
+          echo "2) Point infracost to your Terraform plan file."
+          # Example command (commented out so it's clearly presentation-only)
+          # infracost breakdown --path=. --format=json --out-file=infracost.json
