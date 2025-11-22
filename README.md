@@ -98,7 +98,8 @@ This repo is designed as a **portfolio / reference implementation** to show how 
 
    ```bash
    cp terraform.tfvars.example terraform.tfvars
-# then edit terraform.tfvars with your own (or demo) values
+
+   then edit terraform.tfvars with your own (or demo) values
 
 3. **Initialize Terraform**
 
