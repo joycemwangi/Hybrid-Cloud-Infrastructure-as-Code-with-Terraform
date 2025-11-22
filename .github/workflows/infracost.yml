@@ -1,20 +1,17 @@
-name: Infracost Cost Estimate (stub)
+name: Infracost Cost Estimate (Presentation Mode)
 
 on:
-  # Show it in Actions and allow manual runs
   workflow_dispatch:
-  # (Optional) also on PRs – job will still be skipped if secret is missing
   pull_request:
     branches:
       - main
 
 jobs:
   infracost:
-    name: Infracost CI (runs only when API key is set)
+    name: Infracost CI (runs only when API key exists)
     runs-on: ubuntu-latest
 
-    # ✅ Important: this means the job only runs
-    # if INFRACOST_API_KEY secret is defined and non-empty.
+    # ✅ Skip entire job when no INFRACOST_API_KEY secret is set
     if: ${{ secrets.INFRACOST_API_KEY != '' }}
 
     steps:
@@ -25,12 +22,14 @@ jobs:
         run: |
           curl -fsSL https://raw.githubusercontent.com/infracost/infracost/master/scripts/install.sh | sh
 
-      - name: Show planned cost estimate
+      - name: Cost Estimate (Presentation Mode)
         env:
           INFRACOST_API_KEY: ${{ secrets.INFRACOST_API_KEY }}
         run: |
-          echo "Infracost CI placeholder. To enable real cost estimates:"
-          echo "1) Set INFRACOST_API_KEY in GitHub repo secrets."
-          echo "2) Point infracost to your Terraform plan file."
-          # Example command (commented out so it's clearly presentation-only)
+          echo "Infracost CI stub running."
+          echo "To enable real cost estimates:"
+          echo "1) Add INFRACOST_API_KEY to repo secrets."
+          echo "2) Uncomment Infracost plan commands."
+          
+          # Example for future real use (kept commented so no errors)
           # infracost breakdown --path=. --format=json --out-file=infracost.json
