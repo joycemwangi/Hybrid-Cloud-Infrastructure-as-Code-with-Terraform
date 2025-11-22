@@ -92,7 +92,9 @@ This repo is designed as a **portfolio / reference implementation** to show how 
 
 ## 🚀 Getting Started
 
-1. **Clone the repo**
+2. **Create your local variable file**
+
+   Copy the example file and edit it locally:
+
    ```bash
-   git clone https://github.com/joycemwangi/terraform-iac-hybrid-deployments.git
-   cd terraform-iac-hybrid-deployments
+   cp terraform.tfvars.example terraform.tfvars
