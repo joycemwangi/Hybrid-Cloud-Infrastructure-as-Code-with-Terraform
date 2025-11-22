@@ -73,3 +73,26 @@ This repo is designed as a **portfolio / reference implementation** to show how 
     ├── tflint.yml                   # TFLint (soft-fail)
     ├── checkov.yml                  # Checkov (soft-fail)
     └── infracost.yml                # Cost estimation stub
+```
+## ✅ Prerequisites
+
+- **Terraform** ≥ 1.3
+- Git
+- (Optional) Cloud CLIs and credentials if you actually want to deploy:
+  - AWS credentials (`AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, etc.)
+  - Azure credentials (Service Principal or `az login`)
+  - GCP Application Default Credentials
+  - OCI config + API keys
+- Access to any vendor platforms you want to target (Palo Alto, Fortinet, F5, etc.)
+
+> 💡 You can run everything in **safe demo mode** WITHOUT real credentials.  
+> Terraform will validate and plan successfully, but will not apply changes to real cloud accounts.
+
+---
+
+## 🚀 Getting Started
+
+1. **Clone the repo**
+   ```bash
+   git clone https://github.com/joycemwangi/terraform-iac-hybrid-deployments.git
+   cd terraform-iac-hybrid-deployments
