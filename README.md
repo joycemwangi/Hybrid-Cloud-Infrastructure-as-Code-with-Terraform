@@ -103,12 +103,12 @@ This repo is designed as a **portfolio / reference implementation** to show how 
 
 3. **Initialize Terraform**
    ```bash
-  terraform init
+   terraform init
    ``` 
 4. **Format & validate**
    ```bash 
-  terraform fmt
-  terraform validate
+   terraform fmt
+   terraform validate
    ```
 5. **Plan**
    ```bash
