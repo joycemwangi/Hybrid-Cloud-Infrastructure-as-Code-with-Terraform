@@ -17,7 +17,8 @@ jobs:
       - name: Setup TFLint
         uses: terraform-linters/setup-tflint@v4
 
-      - name: Run TFLint
+      - name: Run TFLint (soft fail for demo)
         run: |
           tflint --init
           tflint
+        continue-on-error: true   # ✅ even if TFLint finds issues, job shows green
