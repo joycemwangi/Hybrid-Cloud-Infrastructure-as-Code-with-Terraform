@@ -194,7 +194,7 @@ For portfolio/demo use, you usually **don’t need** to run `apply`.
 ##
 
 ###
-🤖 ### GitHub Actions Workflows
+### 🤖 GitHub Actions Workflows
 
 This repo includes several CI workflows under `.github/workflows/`:
 
@@ -233,7 +233,7 @@ These workflows show how you’d build a **real-world IaC pipeline** while still
 ##
 
 ###
-🧹 ### Cleaning Up
+### 🧹 Cleaning Up
 
 If you ever run `terraform apply` against a real account and want to tear everything down:
 ``` bash
@@ -244,7 +244,7 @@ This will send delete calls for all resources that are currently tracked in `ter
 ##
 
 ###
-🙋‍♀️ **Notes & Limitations**
+### 🙋‍♀️ Notes & Limitations
 
 - Vendor modules (Palo Alto, Fortinet, F5, Infoblox, Zscaler, Check Point, Cisco IOS/ACI/SD-Access, Juniper) are implemented with `null_resource` for **demo mode**.
 In a real deployment you would replace those with:
@@ -258,7 +258,7 @@ In a real deployment you would replace those with:
 ##
 
 ###
-🤝 **Contributing / Forking**
+### 🤝 Contributing / Forking
 
 This repo is intentionally structured to be easy to **fork** and adapt:
 
