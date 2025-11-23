@@ -96,8 +96,7 @@ This repo is designed as a **portfolio / reference implementation** to show how 
 >💡 You can run everything in **safe demo mode** WITHOUT real credentials.
 > Terraform will validate and plan successfully, but will not apply changes to real cloud accounts.
 
-
----
+***
 
 **🚀 Getting Started**
 **1. Clone the repository**
