@@ -120,3 +120,23 @@ oci_vcn_display_name = "demo-vcn"
 oci_subnet_cidr      = "10.30.0.0/24"
 ```
 If you don’t have an OCI tenancy, **leave these as-is.** Terraform will still validate and plan because no real credentials are configured.
+
+**4. Initialize Terraform**
+``` bash
+terraform init
+```
+This downloads all required providers and sets up the working directory.
+
+**5. Validate***
+``` bash
+terraform fmt
+terraform validate
+```
+`terraform fmt` keeps the code consistently formatted.
+
+`terraform validate` checks that all resources, variables and modules are wired correctly.
+
+-You can also rely on the **GitHub Actions** workflow (`terraform.yml`) to run these checks automatically on every push and pull request.
+
+
+
