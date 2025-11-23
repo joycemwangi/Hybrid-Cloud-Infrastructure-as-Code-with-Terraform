@@ -93,8 +93,8 @@ This repo is designed as a **portfolio / reference implementation** to show how 
 
 -Access to any vendor platforms you want to target (Palo Alto, Fortinet, F5, etc.)
 
-💡 You can run everything in **safe demo mode** WITHOUT real credentials.
-Terraform will validate and plan successfully, but will not apply changes to real cloud accounts.
+>💡 You can run everything in **safe demo mode** WITHOUT real credentials.
+> Terraform will validate and plan successfully, but will not apply changes to real cloud accounts.
 
 **🚀 Getting Started**
 **1. Clone the repository**
@@ -155,15 +155,14 @@ cloud provider calls will fail before apply — so nothing in your real accounts
 
 **7. (Optional, advanced) Apply to real environments**
 
- > This is a blockquote
- ⚠️ **Warning – real changes ahead**
-  Only run `terraform apply` once you:
+ >⚠️ **Warning – real changes ahead**
+ > Only run `terraform apply` once you:
 
-  Have set valid cloud credentials (AWS, Azure, GCP, OCI).
+ > Have set valid cloud credentials (AWS, Azure, GCP, OCI).
   
-  Have updated terraform.tfvars with real CIDRs, regions, and resource names.
+ > Have updated terraform.tfvars with real CIDRs, regions, and resource names.
   
-  Are comfortable with the terraform plan output.
+ > Are comfortable with the terraform plan output.
 
 ``` bash
 terraform apply
