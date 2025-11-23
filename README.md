@@ -149,7 +149,9 @@ You’ll see:
 
  -Cloud resources planned **only if** you’ve provided valid credentials for AWS/Azure/GCP/OCI.
 
-If you haven’t set any real credentials, Terraform will show what would be created, but all cloud provider calls will fail before apply — so nothing in your real accounts is changed.
+If you haven’t set any real credentials, Terraform will show what would be created, but all 
+
+cloud provider calls will fail before apply — so nothing in your real accounts is changed.
 
 **7. (Optional, advanced) Apply to real environments**
 
