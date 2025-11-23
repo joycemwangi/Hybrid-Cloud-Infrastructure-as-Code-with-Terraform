@@ -132,12 +132,18 @@ oci_subnet_cidr      = "10.30.0.0/24"
 ```
 If you don’t have an OCI tenancy, **leave these as-is.** Terraform will still validate and plan because no real credentials are configured.
 
+##
+
+###
 **4. Initialize Terraform**
 ``` bash
 terraform init
 ```
 This downloads all required providers and sets up the working directory.
 
+##
+
+###
 **5. Validate***
 ``` bash
 terraform fmt
@@ -149,6 +155,9 @@ terraform validate
 
 You can also rely on the **GitHub Actions** workflow (`terraform.yml`) to run these checks automatically on every push and pull request.
 
+##
+
+###
 **6. Plan (safe demo mode)**
 
 ``` bash
@@ -164,6 +173,9 @@ If you haven’t set any real credentials, Terraform will show what would be cre
 
 cloud provider calls will fail before apply — so nothing in your real accounts is changed.
 
+##
+
+###
 **7. (Optional, advanced) Apply to real environments**
 
  >⚠️ **Warning – real changes ahead**
@@ -179,6 +191,9 @@ For portfolio/demo use, you usually **don’t need** to run `apply`.
 
 `terraform validate` + `terraform plan` is enough to show recruiters and engineers that the configuration is correct.
 
+##
+
+###
 🤖 **GitHub Actions Workflows**
 
 This repo includes several CI workflows under `.github/workflows/`:
@@ -215,6 +230,9 @@ This repo includes several CI workflows under `.github/workflows/`:
 
 These workflows show how you’d build a **real-world IaC pipeline** while still being safe to run in a public portfolio repo.
 
+##
+
+###
 🧹 **Cleaning Up**
 
 If you ever run `terraform apply` against a real account and want to tear everything down:
@@ -223,6 +241,9 @@ terraform destroy
 ```
 This will send delete calls for all resources that are currently tracked in `terraform.tfstate`.
 
+##
+
+###
 🙋‍♀️ **Notes & Limitations**
 
 - Vendor modules (Palo Alto, Fortinet, F5, Infoblox, Zscaler, Check Point, Cisco IOS/ACI/SD-Access, Juniper) are implemented with `null_resource` for **demo mode**.
@@ -234,6 +255,9 @@ In a real deployment you would replace those with:
 
 - OCI configuration uses **fake OCIDs** by default. Replace them only if you have a real tenancy and want to test.
 
+##
+
+###
 🤝 **Contributing / Forking**
 
 This repo is intentionally structured to be easy to **fork** and adapt:
@@ -245,3 +269,6 @@ This repo is intentionally structured to be easy to **fork** and adapt:
  - Extend the CI pipeline (policy-as-code, SAST, SBOM, etc.).
 
 If you fork it for your own portfolio, feel free to keep the structure and adapt the modules to your own lab environments.
+##
+
+###
