@@ -220,7 +220,7 @@ This will send delete calls for all resources that are currently tracked in `ter
 Vendor modules (Palo Alto, Fortinet, F5, Infoblox, Zscaler, Check Point, Cisco IOS/ACI/SD-Access, Juniper) are implemented with `null_resource` for **demo mode**.
 In a real deployment you would replace those with:
 
-  Direct Terraform provider resources, or
+   Direct Terraform provider resources, or
 
   `local-exec` / external scripts that call the vendor APIs.
 
