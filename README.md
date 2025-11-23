@@ -207,5 +207,32 @@ This repo includes several CI workflows under `.github/workflows/`:
 
 These workflows show how you’d build a **real-world IaC pipeline** while still being safe to run in a public portfolio repo.
 
+🧹 **Cleaning Up**
+
+If you ever run `terraform apply` against a real account and want to tear everything down:
+``` bash
+terraform destroy
+```
+This will send delete calls for all resources that are currently tracked in `terraform.tfstate`.
+
+🙋‍♀️ **Notes & Limitations**
+
+Vendor modules (Palo Alto, Fortinet, F5, Infoblox, Zscaler, Check Point, Cisco IOS/ACI/SD-Access, Juniper) are implemented with `null_resource` for **demo mode**.
+In a real deployment you would replace those with:
+
+  Direct Terraform provider resources, or
+
+  `local-exec` / external scripts that call the vendor APIs.
+
+OCI configuration uses **fake OCIDs** by default. Replace them only if you have a real tenancy and want to test.
+
+
+
+
+
+
+
+
+
 
 
