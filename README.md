@@ -110,7 +110,7 @@ cd terraform-iac-hybrid-deployments
 ##
 
 ###
-**2. Create your local variable file**
+### 2. Create your local variable file
 
 Copy the example file and edit it locally:
 ``` bash
