@@ -77,21 +77,21 @@ This repo is designed as a **portfolio / reference implementation** to show how 
 
 **✅ Prerequisites**
 
--**Terraform** ≥ 1.3
+- **Terraform** ≥ 1.3
 
--Git
+- Git
 
--(Optional) Cloud CLIs and credentials if you actually want to deploy:
+- (Optional) Cloud CLIs and credentials if you actually want to deploy:
 
- -AWS credentials (`AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, etc.)
+  - AWS credentials (`AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, etc.)
 
- -Azure credentials (Service Principal or `az login`)
+  - Azure credentials (Service Principal or `az login`)
 
- -GCP Application Default Credentials
+  - GCP Application Default Credentials
 
- -OCI config + API keys
+  - OCI config + API keys
 
--Access to any vendor platforms you want to target (Palo Alto, Fortinet, F5, etc.)
+- Access to any vendor platforms you want to target (Palo Alto, Fortinet, F5, etc.)
 
 >💡 You can run everything in **safe demo mode** WITHOUT real credentials.
 > Terraform will validate and plan successfully, but will not apply changes to real cloud accounts.
