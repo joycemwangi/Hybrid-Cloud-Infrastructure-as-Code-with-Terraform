@@ -214,24 +214,24 @@ This will send delete calls for all resources that are currently tracked in `ter
 
 🙋‍♀️ **Notes & Limitations**
 
-Vendor modules (Palo Alto, Fortinet, F5, Infoblox, Zscaler, Check Point, Cisco IOS/ACI/SD-Access, Juniper) are implemented with `null_resource` for **demo mode**.
+- Vendor modules (Palo Alto, Fortinet, F5, Infoblox, Zscaler, Check Point, Cisco IOS/ACI/SD-Access, Juniper) are implemented with `null_resource` for **demo mode**.
 In a real deployment you would replace those with:
 
-   Direct Terraform provider resources, or
+ - Direct Terraform provider resources, or
 
-  `local-exec` / external scripts that call the vendor APIs.
+ - `local-exec` / external scripts that call the vendor APIs.
 
-OCI configuration uses **fake OCIDs** by default. Replace them only if you have a real tenancy and want to test.
+- OCI configuration uses **fake OCIDs** by default. Replace them only if you have a real tenancy and want to test.
 
 🤝 **Contributing / Forking**
 
 This repo is intentionally structured to be easy to **fork** and adapt:
 
-  Add more cloud providers or regions.
+ - Add more cloud providers or regions.
 
-  Swap out `null_resource` stubs for real vendor provider resources.
+ - Swap out `null_resource` stubs for real vendor provider resources.
 
-  Extend the CI pipeline (policy-as-code, SAST, SBOM, etc.).
+ - Extend the CI pipeline (policy-as-code, SAST, SBOM, etc.).
 
 If you fork it for your own portfolio, feel free to keep the structure and adapt the modules to your own lab environments.
 
