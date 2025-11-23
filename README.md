@@ -139,7 +139,8 @@ terraform validate
 You can also rely on the **GitHub Actions** workflow (`terraform.yml`) to run these checks automatically on every push and pull request.
 
 **6. Plan (safe demo mode)**
-`` bash
+
+``` bash
 terraform plan
 ```
 You’ll see:
