@@ -157,7 +157,9 @@ If you haven’t set any real credentials, Terraform will show what would be cre
   Only run `terraform apply` once you:
 
   Have set valid cloud credentials (AWS, Azure, GCP, OCI).
+  
   Have updated terraform.tfvars with real CIDRs, regions, and resource names.
+  
   Are comfortable with the terraform plan output.
 
 ``` bash
