@@ -74,26 +74,6 @@ This repo is designed as a **portfolio / reference implementation** to show how 
     ├── checkov.yml                  # Checkov (soft-fail)
     └── infracost.yml                # Cost estimation stub
 ```
-✅ Prerequisites
-
-Terraform ≥ 1.3
-
-Git
-
-(Optional) Cloud CLIs and credentials if you actually want to deploy:
-
-AWS credentials (AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, etc.)
-
-Azure credentials (Service Principal or az login)
-
-GCP Application Default Credentials
-
-OCI config + API keys
-
-Access to any vendor platforms you want to target (Palo Alto, Fortinet, F5, etc.)
-
-💡 You can run everything in safe demo mode WITHOUT real credentials.
-Terraform will validate and plan successfully, but will not apply changes to real cloud accounts.
 
 **✅ Prerequisites**
 
@@ -122,5 +102,20 @@ Terraform will validate and plan successfully, but will not apply changes to rea
 git clone https://github.com/joycemwangi/terraform-iac-hybrid-deployments.git
 cd terraform-iac-hybrid-deployments
 
+**2. Create your local variable file**
 
+Copy the example file and edit it locally:
 
+cp terraform.tfvars.example terraform.tfvars
+
+Edit `terraform.tfvars` to match whatever you want to demonstrate (you can keep all the fake/demo values – they are safe).
+
+**3. (Optional) Adjust demo OCI values**
+
+By default, OCI uses **fake demo values:**
+
+oci_compartment_id   = "ocid1.compartment.oc1..demoexamplecompartmentid"
+oci_vcn_display_name = "demo-vcn"
+oci_subnet_cidr      = "10.30.0.0/24"
+
+If you don’t have an OCI tenancy, **leave these as-is.** Terraform will still validate and plan because no real credentials are configured.
