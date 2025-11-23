@@ -98,8 +98,6 @@ This repo is designed as a **portfolio / reference implementation** to show how 
 
 ---
 
-
-
 **🚀 Getting Started**
 **1. Clone the repository**
 
