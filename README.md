@@ -145,9 +145,9 @@ terraform plan
 ```
 You’ll see:
 
--`null_resource` creations for network vendors (**safe no-ops**).
+ -`null_resource` creations for network vendors (**safe no-ops**).
 
--Cloud resources planned **only if** you’ve provided valid credentials for AWS/Azure/GCP/OCI.
+ -Cloud resources planned **only if** you’ve provided valid credentials for AWS/Azure/GCP/OCI.
 
 If you haven’t set any real credentials, Terraform will show what would be created, but all cloud provider calls will fail before apply — so nothing in your real accounts is changed.
 
@@ -156,10 +156,10 @@ If you haven’t set any real credentials, Terraform will show what would be cre
    **⚠️ Warning – real changes ahead**
    Only run `terraform apply` once you:
 
-    "Have set valid cloud credentials (AWS, Azure, GCP, OCI)."
+    Have set valid cloud credentials (AWS, Azure, GCP, OCI).
 
-    "Have updated terraform.tfvars with real CIDRs, regions, and resource names."
+    Have updated terraform.tfvars with real CIDRs, regions, and resource names.
 
-    "Are comfortable with the terraform plan output."
+    Are comfortable with the terraform plan output.
 
 
