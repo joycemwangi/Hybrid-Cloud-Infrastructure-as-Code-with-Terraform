@@ -177,17 +177,17 @@ This repo includes several CI workflows under `.github/workflows/`:
 
  -**Terraform Validation** – `terraform.yml`
 
-     -Runs `terraform fmt -check`, `terraform init`, and `terraform validate` on pushes and PRs to `main`.
+     Runs `terraform fmt -check`, `terraform init`, and `terraform validate` on pushes and PRs to `main`.
 
  -**Terraform Docs** – `terraform-docs.yml`
 
-     -Uses `terraform-docs` to generate or update module documentation.
+     Uses `terraform-docs` to generate or update module documentation.
 
-  -**TFLint** – `tflint.yml`
+ -**TFLint** – `tflint.yml`
 
-      -Runs `tflint --init` and `tflint`.
+     Runs `tflint --init` and `tflint`.
 
-      -Uses `continue-on-error: true` so findings **do not fail** the build (soft-fail for demo use).
+     Uses `continue-on-error: true` so findings **do not fail** the build (soft-fail for demo use).
 
   -**Checkov Security Scan** – `checkov.yml`
 
