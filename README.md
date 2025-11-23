@@ -242,17 +242,3 @@ If you fork it for your own portfolio, feel free to keep the structure and adapt
 ``` bash
 ::contentReference[oaicite:0]{index=0}
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
