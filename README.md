@@ -114,9 +114,9 @@ Edit `terraform.tfvars` to match whatever you want to demonstrate (you can keep 
 **3. (Optional) Adjust demo OCI values**
 
 By default, OCI uses **fake demo values:**
-
+``` bash
 oci_compartment_id   = "ocid1.compartment.oc1..demoexamplecompartmentid"
 oci_vcn_display_name = "demo-vcn"
 oci_subnet_cidr      = "10.30.0.0/24"
-
+```
 If you don’t have an OCI tenancy, **leave these as-is.** Terraform will still validate and plan because no real credentials are configured.
