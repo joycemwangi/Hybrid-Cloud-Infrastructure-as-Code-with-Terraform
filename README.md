@@ -97,10 +97,9 @@ Terraform will validate and plan successfully, but will not apply changes to rea
 
 ---
 
+## 🚀 Getting Started
 
-**🚀 Getting Started**
-
-**1. Clone the repository**
+### 1. Clone the repository
 
 ``` bash
 git clone https://github.com/joycemwangi/terraform-iac-hybrid-deployments.git
