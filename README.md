@@ -76,9 +76,7 @@ This repo is designed as a **portfolio / reference implementation** to show how 
 ```
 
 **✅ Prerequisites**
-
 - **Terraform** ≥ 1.3
-
 - Git
 
 - (Optional) Cloud CLIs and credentials if you actually want to deploy:
