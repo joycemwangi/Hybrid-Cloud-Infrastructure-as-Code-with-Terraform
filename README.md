@@ -226,6 +226,25 @@ In a real deployment you would replace those with:
 
 OCI configuration uses **fake OCIDs** by default. Replace them only if you have a real tenancy and want to test.
 
+🤝 **Contributing / Forking**
+
+This repo is intentionally structured to be easy to **fork** and adapt:
+
+  Add more cloud providers or regions.
+
+  Swap out `null_resource` stubs for real vendor provider resources.
+
+  Extend the CI pipeline (policy-as-code, SAST, SBOM, etc.).
+
+If you fork it for your own portfolio, feel free to keep the structure and adapt the modules to your own lab environments.
+
+``` bash
+::contentReference[oaicite:0]{index=0}
+```
+
+
+
+
 
 
 
