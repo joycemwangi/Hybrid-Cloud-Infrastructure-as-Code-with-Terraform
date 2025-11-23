@@ -132,9 +132,9 @@ This downloads all required providers and sets up the working directory.
 terraform fmt
 terraform validate
 ```
--`terraform fmt` keeps the code consistently formatted.
+- `terraform fmt` keeps the code consistently formatted.
 
--`terraform validate` checks that all resources, variables and modules are wired correctly.
+- `terraform validate` checks that all resources, variables and modules are wired correctly.
 
 You can also rely on the **GitHub Actions** workflow (`terraform.yml`) to run these checks automatically on every push and pull request.
 
@@ -145,9 +145,9 @@ terraform plan
 ```
 You’ll see:
 
- -`null_resource` creations for network vendors (**safe no-ops**).
+ - `null_resource` creations for network vendors (**safe no-ops**).
 
- -Cloud resources planned **only if** you’ve provided valid credentials for AWS/Azure/GCP/OCI.
+ - Cloud resources planned **only if** you’ve provided valid credentials for AWS/Azure/GCP/OCI.
 
 If you haven’t set any real credentials, Terraform will show what would be created, but all 
 
@@ -172,35 +172,35 @@ For portfolio/demo use, you usually **don’t need** to run `apply`.
 
 This repo includes several CI workflows under `.github/workflows/`:
 
- **Terraform Validation** – `terraform.yml`
+ - **Terraform Validation** – `terraform.yml`
 
-   Runs `terraform fmt -check`, `terraform init`, and `terraform validate` on pushes and PRs to `main`.
+      - Runs `terraform fmt -check`, `terraform init`, and `terraform validate` on pushes and PRs to `main`.
 
- **Terraform Docs** – `terraform-docs.yml`
+ - **Terraform Docs** – `terraform-docs.yml`
 
-   Uses `terraform-docs` to generate or update module documentation.
+      - Uses `terraform-docs` to generate or update module documentation.
 
- **TFLint** – `tflint.yml`
+ - **TFLint** – `tflint.yml`
 
-   Runs `tflint --init` and `tflint`.
+      - Runs `tflint --init` and `tflint`.
 
-   Uses `continue-on-error: true` so findings **do not fail** the build (soft-fail for demo use).
+      - Uses `continue-on-error: true` so findings **do not fail** the build (soft-fail for demo use).
 
-  **Checkov Security Scan** – `checkov.yml`
+ - **Checkov Security Scan** – `checkov.yml`
 
-   Scans Terraform code for common misconfigurations.
+      - Scans Terraform code for common misconfigurations.
 
-   Uses `soft_fail: true` so security findings are reported but **do not break** the build.
+      - Uses `soft_fail: true` so security findings are reported but **do not break** the build.
 
-  **Auto-format** – `terraform-fmt-autocommit.yml`
+ - **Auto-format** – `terraform-fmt-autocommit.yml`
 
-   Optional workflow that can run `terraform fmt` on PRs and commit formatting fixes automatically.
+     - Optional workflow that can run `terraform fmt` on PRs and commit formatting fixes automatically.
 
-  **Infracost (presentation mode)** – `infracost.yml`
+ - **Infracost (presentation mode)** – `infracost.yml`
 
-   Stub workflow that only runs real cost estimation if `INFRACOST_API_KEY` is configured as a repo secret.
+     - Stub workflow that only runs real cost estimation if `INFRACOST_API_KEY` is configured as a repo secret.
 
-   Otherwise it just prints guidance text and **never fails**.
+     - Otherwise it just prints guidance text and **never fails**.
 
 These workflows show how you’d build a **real-world IaC pipeline** while still being safe to run in a public portfolio repo.
 
