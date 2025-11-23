@@ -3,7 +3,7 @@
 Automated Terraform IaC framework for **hybrid cloud** and **multi-vendor network automation**.  
 Supports AWS, Azure, GCP, OCI (demo), and network/security platforms such as **Cisco ACI/IOS/SD-Access & Panorama**, **Palo Alto**, **Fortinet**, **Juniper**, **F5**, **Infoblox**, **Zscaler**, and **Check Point**.
 
-This repo is designed as a **portfolio / reference implementation** to show how you structure multi-cloud, multi-vendor automation safely.
+This repo is designed as a **portfolio / reference implementation** to show how you structure multi-cloud, multi-vendor automation **safely**.
 
 ---
 
@@ -15,7 +15,7 @@ This repo is designed as a **portfolio / reference implementation** to show how 
   - GCP VPC network + subnet
   - OCI VCN + subnet (using *demo* OCIDs by default)
 
-- **Network & Security Vendors**
+- **Network & security vendors**
   - Cisco IOS / NX-OS
   - Cisco ACI
   - Cisco SD-Access
@@ -29,8 +29,8 @@ This repo is designed as a **portfolio / reference implementation** to show how 
 
 - **Safe “demo mode”**
   - Cloud providers are wired for real use but require credentials.
-  - Vendor modules use `null_resource` with `triggers` – you can see planned changes without touching real devices.
-  - OCI uses dummy OCIDs by default so it never hits a real tenancy.
+  - Vendor modules use `null_resource` with `triggers` – you can see planned changes **without touching real devices**.
+  - OCI uses **dummy OCIDs** by default so it never hits a real tenancy.
 
 - **GitHub Actions CI**
   - `terraform.yml` – Terraform **fmt + init + validate**
@@ -74,82 +74,53 @@ This repo is designed as a **portfolio / reference implementation** to show how 
     ├── checkov.yml                  # Checkov (soft-fail)
     └── infracost.yml                # Cost estimation stub
 ```
-## ✅ Prerequisites
+✅ Prerequisites
 
-- **Terraform** ≥ 1.3
-- Git
-- (Optional) Cloud CLIs and credentials if you actually want to deploy:
-  - AWS credentials (`AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, etc.)
-  - Azure credentials (Service Principal or `az login`)
-  - GCP Application Default Credentials
-  - OCI config + API keys
-- Access to any vendor platforms you want to target (Palo Alto, Fortinet, F5, etc.)
+Terraform ≥ 1.3
 
-> 💡 You can run everything in **safe demo mode** WITHOUT real credentials.  
-> Terraform will validate and plan successfully, but will not apply changes to real cloud accounts.
+Git
 
----
+(Optional) Cloud CLIs and credentials if you actually want to deploy:
 
-## 🚀 Getting Started
+AWS credentials (AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, etc.)
 
-2. **Create your local variable file**
+Azure credentials (Service Principal or az login)
 
-   Copy the example file and edit it locally:
+GCP Application Default Credentials
 
-   ```bash
-   cp terraform.tfvars.example terraform.tfvars
-   ```
-   then edit `terraform.tfvars` with your own (or demo) values
+OCI config + API keys
 
-3. **Initialize Terraform**
-   ```bash
-   terraform init
-   ``` 
-4. **Format & validate**
-   ```bash 
-   terraform fmt
-   terraform validate
-   ```
-5. **Plan**
-   ```bash
-   terraform plan
-   ``` 
-   You’ll see:
-   null_resource creations for network vendors (safe no-ops)
-   Cloud resources planned only if you’ve provided valid credentials.
+Access to any vendor platforms you want to target (Palo Alto, Fortinet, F5, etc.)
 
-6. **Apply (optional, only with real test accounts!)**
-   ```bash 
-   terraform apply
-   ```
-7. **Destroy resources (Optional)**
-   ```bash
-   terraform destroy
-   ```
-   
-**🔐 CI / Security & Quality Gates**
+💡 You can run everything in safe demo mode WITHOUT real credentials.
+Terraform will validate and plan successfully, but will not apply changes to real cloud accounts.
 
-  This repo includes a production-style IaC validation pipeline:
+**✅ Prerequisites**
 
- **Terraform Validation** – syntax & structure checks
+-**Terraform** ≥ 1.3
 
- **TFLint (soft-fail)** – Terraform best practices
+-Git
 
- **Checkov (soft-fail)** – IaC security scanning
+-(Optional) Cloud CLIs and credentials if you actually want to deploy:
 
- **terraform-docs** – auto-generate module documentation
+ -AWS credentials (`AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, etc.)
 
- **Auto-format** – optional terraform fmt auto-commit
+ -Azure credentials (Service Principal or `az login`)
 
- **Infracost (presentation mode)** – cost estimation (runs only if API key exists)
+ -GCP Application Default Credentials
 
-**🔭 Roadmap**
- - Add full environment workspaces (dev → test → prod)
- - Add more vendor automation examples (Ansible, SDKs)
- - Add Terraform matrix builds
- - Add PCI DSS / CIS policies in Checkov
+ -OCI config + API keys
 
-**📎 Notes**
- Never commit secrets. Use GitHub Secrets or your own .tfvars file. 
- OCI, Infoblox, and other sample values in the repo are fake / safe for public use.
- Designed to be readable by hiring managers + engineers reviewing your IaC & automation skills.
+-Access to any vendor platforms you want to target (Palo Alto, Fortinet, F5, etc.)
+
+💡 You can run everything in **safe demo mode** WITHOUT real credentials.
+Terraform will validate and plan successfully, but will not apply changes to real cloud accounts.
+
+**🚀 Getting Started**
+**1. Clone the repository**
+
+git clone https://github.com/joycemwangi/terraform-iac-hybrid-deployments.git
+cd terraform-iac-hybrid-deployments
+
+
+
