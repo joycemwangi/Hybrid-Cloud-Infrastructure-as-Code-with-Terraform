@@ -1,4 +1,4 @@
-<img src="images/banner.png" width="400">
+<img src="images/banner.png" width="200">
 
 # Terraform IaC Hybrid Deployments
 
