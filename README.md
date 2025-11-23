@@ -102,7 +102,7 @@ Terraform will validate and plan successfully, but will not apply changes to rea
 ``` bash
 git clone https://github.com/joycemwangi/terraform-iac-hybrid-deployments.git
 cd terraform-iac-hybrid-deployments
-
+```
 **2. Create your local variable file**
 
 Copy the example file and edit it locally:
