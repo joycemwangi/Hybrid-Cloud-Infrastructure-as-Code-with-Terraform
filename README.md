@@ -1,3 +1,5 @@
+![Terraform Hybrid IaC](images/banner.png)
+
 # Terraform IaC Hybrid Deployments
 
 Automated Terraform IaC framework for **hybrid cloud** and **multi-vendor network automation**.  
