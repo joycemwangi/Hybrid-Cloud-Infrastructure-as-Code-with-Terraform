@@ -1,6 +1,3 @@
-<p align="center">
-  <img src="images/A_digital_2D_banner_displays_Terraform_Hybrid_IaC.png" width="650">
-</p>
 
 # Terraform IaC Hybrid Deployments
 
