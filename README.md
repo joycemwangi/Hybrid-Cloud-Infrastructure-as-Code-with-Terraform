@@ -156,10 +156,10 @@ If you haven’t set any real credentials, Terraform will show what would be cre
    **⚠️ Warning – real changes ahead**
    Only run `terraform apply` once you:
 
-    -"Have set valid cloud credentials (AWS, Azure, GCP, OCI)."
+    "Have set valid cloud credentials (AWS, Azure, GCP, OCI)."
 
-    -"Have updated terraform.tfvars with real CIDRs, regions, and resource names."
+    "Have updated terraform.tfvars with real CIDRs, regions, and resource names."
 
-    -"Are comfortable with the terraform plan output."
+    "Are comfortable with the terraform plan output."
 
 
