@@ -1,3 +1,6 @@
+<p align="center">
+  <img src="images/banner-small.png" width="600">
+</p>
 
 # Terraform IaC Hybrid Deployments
 
