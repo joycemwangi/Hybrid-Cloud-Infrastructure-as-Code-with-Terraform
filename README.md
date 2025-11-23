@@ -122,7 +122,7 @@ Edit `terraform.tfvars` to match whatever you want to demonstrate (you can keep 
 ##
 
 ###
-**3. (Optional) Adjust demo OCI values**
+### 3. (Optional) Adjust demo OCI values
 
 By default, OCI uses **fake demo values:**
 ``` bash
@@ -135,7 +135,7 @@ If you don’t have an OCI tenancy, **leave these as-is.** Terraform will still 
 ##
 
 ###
-**4. Initialize Terraform**
+### 4. Initialize Terraform
 ``` bash
 terraform init
 ```
@@ -144,7 +144,7 @@ This downloads all required providers and sets up the working directory.
 ##
 
 ###
-**5. Validate***
+### 5. Validate
 ``` bash
 terraform fmt
 terraform validate
@@ -158,7 +158,7 @@ You can also rely on the **GitHub Actions** workflow (`terraform.yml`) to run th
 ##
 
 ###
-**6. Plan (safe demo mode)**
+### 6. Plan (safe demo mode)
 
 ``` bash
 terraform plan
@@ -176,7 +176,7 @@ cloud provider calls will fail before apply — so nothing in your real accounts
 ##
 
 ###
-**7. (Optional, advanced) Apply to real environments**
+### 7. (Optional, advanced) Apply to real environments
 
  >⚠️ **Warning – real changes ahead**
  > Only run `terraform apply` once you:
