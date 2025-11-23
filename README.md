@@ -166,6 +166,7 @@ If you haven’t set any real credentials, Terraform will show what would be cre
 terraform apply
 ```
 For portfolio/demo use, you usually **don’t need** to run `apply`.
+
 `terraform validate` + `terraform plan` is enough to show recruiters and engineers that the configuration is correct.
 
 
