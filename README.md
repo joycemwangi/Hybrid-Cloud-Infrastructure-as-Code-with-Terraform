@@ -93,13 +93,14 @@ This repo is designed as a **portfolio / reference implementation** to show how 
 
 - Access to any vendor platforms you want to target (Palo Alto, Fortinet, F5, etc.)
 
->💡 You can run everything in **safe demo mode** WITHOUT real credentials.
-> Terraform will validate and plan successfully, but will not apply changes to real cloud accounts.
+> 💡 You can run everything in safe demo mode WITHOUT real credentials.
+Terraform will validate and plan successfully, but will not apply changes to real cloud accounts.
 
 
 ---
 
 **🚀 Getting Started**
+
 **1. Clone the repository**
 
 ``` bash
