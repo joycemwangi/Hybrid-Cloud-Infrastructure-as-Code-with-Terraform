@@ -157,11 +157,11 @@ cloud provider calls will fail before apply — so nothing in your real accounts
 
  >⚠️ **Warning – real changes ahead**
  > Only run `terraform apply` once you:
-
+ >
  > Have set valid cloud credentials (AWS, Azure, GCP, OCI).
-  
+ > 
  > Have updated terraform.tfvars with real CIDRs, regions, and resource names.
-  
+ >
  > Are comfortable with the terraform plan output.
 
 ``` bash
