@@ -181,29 +181,29 @@ This repo includes several CI workflows under `.github/workflows/`:
 
  **Terraform Docs** – `terraform-docs.yml`
 
-    Uses `terraform-docs` to generate or update module documentation.
+   Uses `terraform-docs` to generate or update module documentation.
 
  **TFLint** – `tflint.yml`
 
-    Runs `tflint --init` and `tflint`.
+   Runs `tflint --init` and `tflint`.
 
-    Uses `continue-on-error: true` so findings **do not fail** the build (soft-fail for demo use).
+   Uses `continue-on-error: true` so findings **do not fail** the build (soft-fail for demo use).
 
-  -**Checkov Security Scan** – `checkov.yml`
+  **Checkov Security Scan** – `checkov.yml`
 
-      -Scans Terraform code for common misconfigurations.
+    Scans Terraform code for common misconfigurations.
 
-      -Uses `soft_fail: true` so security findings are reported but **do not break** the build.
+    Uses `soft_fail: true` so security findings are reported but **do not break** the build.
 
-  -**Auto-format** – `terraform-fmt-autocommit.yml`
+  **Auto-format** – `terraform-fmt-autocommit.yml`
 
-     -Optional workflow that can run `terraform fmt` on PRs and commit formatting fixes automatically.
+    Optional workflow that can run `terraform fmt` on PRs and commit formatting fixes automatically.
 
-  -**Infracost (presentation mode)** – `infracost.yml`
+  **Infracost (presentation mode)** – `infracost.yml`
 
-      -Stub workflow that only runs real cost estimation if `INFRACOST_API_KEY` is configured as a repo secret.
+    Stub workflow that only runs real cost estimation if `INFRACOST_API_KEY` is configured as a repo secret.
 
-      -Otherwise it just prints guidance text and **never fails**.
+    Otherwise it just prints guidance text and **never fails**.
 
 These workflows show how you’d build a **real-world IaC pipeline** while still being safe to run in a public portfolio repo.
 
