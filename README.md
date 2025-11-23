@@ -132,11 +132,11 @@ This downloads all required providers and sets up the working directory.
 terraform fmt
 terraform validate
 ```
-`terraform fmt` keeps the code consistently formatted.
+-`terraform fmt` keeps the code consistently formatted.
 
-`terraform validate` checks that all resources, variables and modules are wired correctly.
+-`terraform validate` checks that all resources, variables and modules are wired correctly.
 
--You can also rely on the **GitHub Actions** workflow (`terraform.yml`) to run these checks automatically on every push and pull request.
+You can also rely on the **GitHub Actions** workflow (`terraform.yml`) to run these checks automatically on every push and pull request.
 
 
 
