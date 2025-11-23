@@ -194,7 +194,7 @@ For portfolio/demo use, you usually **don’t need** to run `apply`.
 ##
 
 ###
-🤖 **GitHub Actions Workflows**
+🤖 ### GitHub Actions Workflows
 
 This repo includes several CI workflows under `.github/workflows/`:
 
@@ -233,7 +233,7 @@ These workflows show how you’d build a **real-world IaC pipeline** while still
 ##
 
 ###
-🧹 **Cleaning Up**
+🧹 ### Cleaning Up
 
 If you ever run `terraform apply` against a real account and want to tear everything down:
 ``` bash
