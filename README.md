@@ -171,4 +171,41 @@ For portfolio/demo use, you usually **don’t need** to run `apply`.
 
 `terraform validate` + `terraform plan` is enough to show recruiters and engineers that the configuration is correct.
 
+🤖 **GitHub Actions Workflows**
+
+This repo includes several CI workflows under `.github/workflows/`:
+
+ -**Terraform Validation** – `terraform.yml`
+
+     -Runs `terraform fmt -check`, `terraform init`, and `terraform validate` on pushes and PRs to `main`.
+
+ -**Terraform Docs** – `terraform-docs.yml`
+
+     -Uses `terraform-docs` to generate or update module documentation.
+
+  -**TFLint** – `tflint.yml`
+
+      -Runs `tflint --init` and `tflint`.
+
+      -Uses `continue-on-error: true` so findings **do not fail** the build (soft-fail for demo use).
+
+  -**Checkov Security Scan** – `checkov.yml`
+
+      -Scans Terraform code for common misconfigurations.
+
+      -Uses `soft_fail: true` so security findings are reported but **do not break** the build.
+
+  -**Auto-format** – `terraform-fmt-autocommit.yml`
+
+     -Optional workflow that can run `terraform fmt` on PRs and commit formatting fixes automatically.
+
+  -**Infracost (presentation mode)** – `infracost.yml`
+
+      -Stub workflow that only runs real cost estimation if `INFRACOST_API_KEY` is configured as a repo secret.
+
+      -Otherwise it just prints guidance text and **never fails**.
+
+These workflows show how you’d build a **real-world IaC pipeline** while still being safe to run in a public portfolio repo.
+
+
 
