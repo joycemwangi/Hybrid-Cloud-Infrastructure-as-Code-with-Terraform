@@ -1,7 +1,6 @@
 <p align="center">
-  <img src="images/banner.png" style="max-width: 600px; width: 100%; border-radius: 12px;" />
+  <img src="images/A_digital_2D_banner_displays_Terraform_Hybrid_IaC.png" width="650">
 </p>
-
 
 # Terraform IaC Hybrid Deployments
 
