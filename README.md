@@ -155,7 +155,8 @@ cloud provider calls will fail before apply — so nothing in your real accounts
 
 **7. (Optional, advanced) Apply to real environments**
 
-  ⚠️ **Warning – real changes ahead**
+ > This is a blockquote
+ ⚠️ **Warning – real changes ahead**
   Only run `terraform apply` once you:
 
   Have set valid cloud credentials (AWS, Azure, GCP, OCI).
