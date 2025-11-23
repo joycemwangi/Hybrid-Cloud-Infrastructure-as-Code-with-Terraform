@@ -177,7 +177,7 @@ This repo includes several CI workflows under `.github/workflows/`:
 
  **Terraform Validation** – `terraform.yml`
 
-    Runs `terraform fmt -check`, `terraform init`, and `terraform validate` on pushes and PRs to `main`.
+   Runs `terraform fmt -check`, `terraform init`, and `terraform validate` on pushes and PRs to `main`.
 
  **Terraform Docs** – `terraform-docs.yml`
 
