@@ -1,4 +1,6 @@
-![Terraform Hybrid IaC](images/banner.png)
+<p align="center">
+  <img src="images/banner.png" width="900">
+</p>
 
 # Terraform IaC Hybrid Deployments
 
