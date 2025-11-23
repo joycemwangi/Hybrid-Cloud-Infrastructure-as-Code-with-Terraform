@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="images/banner.png" width="500">
+  <img src="images/banner.png" width="400">
 </p>
 
 # Terraform IaC Hybrid Deployments
