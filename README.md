@@ -271,3 +271,9 @@ This repo is intentionally structured to be easy to **fork** and adapt:
  - Extend the CI pipeline (policy-as-code, SAST, SBOM, etc.).
 
 If you fork it for your own portfolio, feel free to keep the structure and adapt the modules to your own lab environments.
+
+## Author
+**Joyce Mwangi**  
+Network & Cloud Infrastructure Engineer  
+GitHub: https://github.com/joycemwangi  
+LinkedIn: https://linkedin.com/in/wanjajoyce
